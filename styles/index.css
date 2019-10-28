@@ -7,26 +7,30 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#main-logo {
+    margin-right: 800px;
+}
+
 .main-header {
-    width: 100%;
-    position: fixed;
-    top: 0%;
-    height: 70px;
-    background-color: white;
+    position: inherit;
+    padding-top: 30px;
+    width: 100%;    
+    height: 50px;
+    background-color: #21051F;
 }
 
 .main-header a {
+    color: white;
     text-decoration: none;
-    color: black;
 }
 
 .main-header a:hover {
     background-color: #F8F8F8;
-    border-bottom:3px solid #222;
+    border-bottom:3px solid #F8F8F8;
 }
 .main-header ul{
-    margin-top: 7px;
-    margin-left: 50%;
+    display: inline;
+    margin-left: 55%;
     list-style: none;
 }
 
@@ -35,6 +39,32 @@ body {
     font-size: 16px;
     padding: 12px;
     display: inline;
-    color: #333;
+    color: #f8f8f8;
     text-decoration: none;
+    
+}
+
+#wallpaper-section {
+    background-color: #f8f8f8;
+}
+
+#wallpaper-section div {
+    height: 370px;
+    display: block;
+    text-align: center;    
+}
+
+#wallpaper-section button {
+    padding: 7px;
+    background-color: #21051F;
+    color: #e8e8e8;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+}
+
+#launch-section {
+    background-color: #D3E0DF;
+    height: 180px;
 }
