@@ -5,18 +5,19 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-#main-logo {
-    margin-right: 800px;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #F8F8F8;
 }
 
 .main-header {
     position: inherit;
-    padding-top: 30px;
+    padding-top: 20px;
     width: 100%;    
-    height: 50px;
+    height: 60px;
     background-color: #21051F;
+    opacity: 80%;
+    position: fixed;
 }
 
 .main-header a {
@@ -25,12 +26,11 @@ body {
 }
 
 .main-header a:hover {
-    background-color: #F8F8F8;
     border-bottom:3px solid #F8F8F8;
 }
-.main-header ul{
-    display: inline;
-    margin-left: 55%;
+.main-header ul{    
+    display: flex;
+    justify-content: center;
     list-style: none;
 }
 
@@ -41,7 +41,35 @@ body {
     display: inline;
     color: #f8f8f8;
     text-decoration: none;
+}
+
+.main-header li:first-child a{
+    text-transform: none;
+    border-color: white;
+    margin-right: 70px;
+    color: white;
     
+}
+
+.main-header li:nth-child(4) a{
+    border-color: white;
+    padding: 7px;   
+    color: white;
+    border: 1px solid #F8F8F8;
+}
+
+.main-header li:nth-child(4) a:hover {
+    background-color: #F8F8F8;
+    padding: 7px;   
+    color: #131415;
+    border: 1px solid #F8F8F8;
+}
+
+#aux-div {
+    height: 50px;
+    background-color: #131415;
+    padding-top: 30px;
+    width: 100%;    
 }
 
 #wallpaper-section {
@@ -49,9 +77,15 @@ body {
 }
 
 #wallpaper-section div {
-    height: 370px;
-    display: block;
+    margin-top: 50px;
+    height: 340px;
     text-align: center;    
+}
+
+#wallpaper-section img {
+    margin: 0 auto;
+    display: block;
+    image-resolution: cover;
 }
 
 #wallpaper-section button {
@@ -62,9 +96,51 @@ body {
     text-decoration: none;
     display: block;
     margin: 0 auto;
+    border-style: none;
+}
+
+#wallpaper-section button:hover {
+    padding: 7px;
+    background-color: rgb(61, 12, 41);
+    color: #e8e8e8;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
 }
 
 #launch-section {
-    background-color: #D3E0DF;
-    height: 180px;
+    background-image: url(./img/ideia.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-color: #4a8fda;
+    height: 370px;
+    text-align: center;
+}
+
+#launch-div button{
+    font-size: 22px;
+    text-transform: uppercase;
+    position: inherit;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 25px;
+    border-style: none;
+}
+
+
+footer {
+    background-color: #21051F;
+}
+#launch-div button:hover{
+    background-color: #CCC;
+}
+
+#text-footer {
+    text-align: center;
+    color: #F8F8F8;
+    font-size: 13px;
 }
