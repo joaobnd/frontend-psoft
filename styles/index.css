@@ -44,7 +44,7 @@ body {
 }
 
 .main-header li:first-child a{
-    text-transform: none;
+    text-transform: uppercase;
     border-color: white;
     margin-right: 70px;
     color: white;
