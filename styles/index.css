@@ -133,6 +133,7 @@ body {
 
 
 footer {
+    padding: 2px 0;
     background-color: #21051F;
 }
 #launch-div button:hover{
