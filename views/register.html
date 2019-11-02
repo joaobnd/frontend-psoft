@@ -8,6 +8,7 @@
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css"/>
     <link rel="stylesheet" href="../styles/register.css">
+    <script src="../services/userService.js"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -18,16 +19,16 @@
                     <a href="../index.html">inicio</a>
                 </li>
                 <li> 
-                    <a href="#">campanhas</a> 
+                    <a href="./campaigns.html">campanhas</a> 
                 </li>
                 <li> 
-                    <a href="#">criar conta</a>
+                    <a href="./register.html">criar conta</a>
                 </li>
                 <li> 
-                    <a href="#">login</a>
+                    <a href="./login.html">login</a>
                 </li>
                 <li>
-                    <a href="#">lançar campanha</a>
+                    <a href="./create-campaign.html">lançar campanha</a>
                 </li>
             </ul>
         </nav>
@@ -45,39 +46,39 @@
             <p>
                 * Todos os dados são obrigatórios
             </p>
-            <form class="submit-form">
+            <form class="submit-form" onsubmit="confirmPassword(); return false;">
                 <div class="form-group">
                     <label>Primeiro nome</label>
-                    <input type="text" name="first-name">
+                    <input type="text" id="register-first-name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Último nome</label>
-                    <input type="text" name="last-name">
+                    <input type="text" id="register-last-name" required>
                 </div>
 
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="text" name="email">
+                    <input type="text" id="register-email" required>
                 </div>
 
                 <div class="form-group">
                     <label>Nº do cartão de crédito</label>
-                    <input type="text" name="creditcard">
+                    <input type="text" id="register-creditcard" required>
                 </div>
 
                 <div class="form-group">
                     <label>Senha</label>
-                    <input type="password" name="password">
+                    <input type="password" id="register-password" required>
                 </div>
 
                 <div class="form-group">
                     <label>Confirme a senha</label>
-                    <input type="password" name="password-confirm">
+                    <input type="password" id="register-password-confirm" required>
                 </div>
 
                 <div class="form-group">
-                    <input class="button" type="submit" value="Criar minha conta" name="submit">
+                    <input class="button" type="submit" id="register-submit">
                 </div>
             </form>
         </div>
