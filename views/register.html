@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css"/>
     <link rel="stylesheet" href="../styles/register.css">
-    <script src="../services/userService.js"></script>
+    <script src="../services/userService.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -40,13 +39,10 @@
     <!-- FORMULÁRIO -->
     <section id="register-form-section">
         <div id="container-login">
-            <h2>
-                Faça seu cadastro
-            </h2>
-            <p>
-                * Todos os dados são obrigatórios
-            </p>
-            <form class="submit-form" onsubmit="confirmPassword(); return false;">
+            <h2>Faça seu cadastro</h2>
+            <p>* Todos os dados são obrigatórios</p>
+
+            <form class="submit-form">
                 <div class="form-group">
                     <label>Primeiro nome</label>
                     <input type="text" id="register-first-name" required>
@@ -77,8 +73,8 @@
                     <input type="password" id="register-password-confirm" required>
                 </div>
 
-                <div class="form-group">
-                    <input class="button" type="submit" id="register-submit">
+                <div class="form-group" >
+                    <button class="button" type="submit">Criar conta</button>
                 </div>
             </form>
         </div>

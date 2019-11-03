@@ -113,7 +113,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-.submit-form input[type="submit"] {
+.submit-form button {
     background-color: #4a8fda;
     color: #F8F8F8;
     border: none;
@@ -121,7 +121,7 @@ h2 {
     font-size: 16px;
 }
 
-.submit-form input[type="submit"]:hover {
+.submit-form button:hover {
     background-color: #3A7ECA;
     padding: 10px 15px;
     font-size: 16px;
