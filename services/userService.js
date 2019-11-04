@@ -24,10 +24,10 @@ function registerUser() {
     let $password = document.querySelector('#register-password').value;
 
     let user = {
-        fname: $fname,
-        lname: $lname,
-        email: $email,
-        creditcard: $creditcard,
+    	email: $email,
+        firstName: $fname,
+        lastName: $lname,
+        credCard: $creditcard,
         password: $password
     };
 
