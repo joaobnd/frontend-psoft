@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJuDE | Crowdfunding</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="crowdfunding, doação, vaquinha">
+    <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="../services/userService.js" type="module"></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="main-header">
+        <nav id="navbar">
+            <ul>
+                <li>
+                    <a href="../index.html">inicio</a>
+                </li>
+                <li> 
+                    <a href="./campaigns.html">campanhas</a> 
+                </li>
+                <li> 
+                    <a href="./register.html">criar conta</a>
+                </li>
+                <li> 
+                    <a href="./login.html">login</a>
+                </li>
+                <li>
+                    <a href="./create-campaign.html">lançar campanha</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="aux-div">
+        <br>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <section id="register-form-section">
+        <div id="container-login">
+            <h2>Login</h2>
+            <p>Não tem conta? <a href="">Cadastre-se</a></p>
+
+            <form class="submit-form">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" id="register-email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+
+                <div class="form-group" >
+                    <button class="button" type="submit">Criar conta</button>
+                </div>
+            </form>
+        </div>
+    </section>  
+    
+    <!-- RODAPÉ -->
+    <footer class="center-footer">
+        <div class="sub-footer">
+            <div id="text-footer">
+                <span class="">
+                    <p>Copyright © 2019 AJuDE, Inc.</p>
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

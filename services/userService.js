@@ -72,6 +72,7 @@ function registerUser() {
         window.location.href = '../index.html';
     })
     .catch(error => {
-        alert(error.message);
+        alert("Ocorreu um erro com o servidor, tente novamente mais tarde");
+        window.location.href = './register.html';
     });
 };

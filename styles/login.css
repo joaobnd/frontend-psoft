@@ -7,6 +7,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
+    background-color: #F8F8F8;
 }
 
 h2 {
@@ -128,7 +129,7 @@ h2 {
 footer {
     padding: 2px 0;
     background-color: #4a8fda;
-    position: static;
+    position: absolute;
     bottom:0;
     width:100%;
 }
