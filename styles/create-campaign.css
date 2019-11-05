@@ -10,14 +10,22 @@ body {
     background-color: #F8F8F8;
 }
 
+h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    color: #777;
+    margin: 8px;
+}
+
 .main-header {
     position: inherit;
     padding-top: 20px;
     width: 100%;    
     height: 60px;
-    background-color: #21051F;
-    opacity: 80%;
-    position: fixed;
+    background-color: #4a8fda;
+    opacity: 100%;
+    position: absolute;
 }
 
 .main-header a {
@@ -67,80 +75,76 @@ body {
 
 #aux-div {
     height: 50px;
-    background-color: #21051F;
+    background-color: #131415;
     padding-top: 30px;
-    width: 100%;   
+    width: 100%;    
 }
 
-#wallpaper-section div {
-    background-color: #f8f8f8;
-    margin-top: 50px;
-    height: 340px;
-    text-align: center;    
+#register-form-section {
+    margin-top: 20px;
+    margin-bottom: 80px;
 }
 
-#wallpaper-section img {
-    margin: 0 auto;
-    display: block;
-    image-resolution: cover;
-}
-
-#wallpaper-section a {
-    padding: 7px;
-    background-color: #4a8fda;
-    color: #e8e8e8;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-style: none;
-    font-size: 14px;
-}
-
-#wallpaper-section a:hover {
-    padding: 7px;
-    background-color: #4a8fda;
-    color: #e8e8e8;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-#wallpaper-div {
-    background-color: #F8F8F8;
-}
-
-#launch-section {
-    background-image: url(./img/ideia.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    background-color: #4a8fda;
-    height: 370px;
+#register-form-section p{
     text-align: center;
+    font-size: 14px;
+    color: #666;
 }
 
-#launch-div button{
-    font-size: 22px;
-    text-transform: uppercase;
-    position: inherit;
-    margin: 0 auto;
-    margin-top: 200px;
-    padding: 25px;
-    border-style: none;
+.submit-form {
+    margin: 20px 35%;
 }
 
+.submit-form .form-group {
+    padding-bottom: 15px;
+}
+
+.submit-form label {
+    font-size: 15px;
+    display: block;
+    padding-bottom: 8px;
+    color: #666;
+}
+
+.submit-form input[type="text"], input[type="password"] {
+    padding: 7px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.submit-form button {
+    background-color: #4a8fda;
+    color: #F8F8F8;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.submit-form button:hover {
+    background-color: #3A7ECA;
+    padding: 10px 15px;
+    font-size: 16px;
+}
 
 footer {
     padding: 2px 0;
-    background-color: #21051F;
-}
-
-#launch-div button:hover{
-    background-color: #CCC;
+    background-color: #4a8fda;
+    position: absolute;
+    bottom:0;
+    width:100%;
 }
 
 #text-footer {
     text-align: center;
     color: #F8F8F8;
     font-size: 13px;
+}
+
+.load {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    color: #F8F8F8;
 }

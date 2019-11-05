@@ -85,23 +85,26 @@ body {
     image-resolution: cover;
 }
 
-#wallpaper-section a {
+#wallpaper-section button {
     padding: 7px;
-    background-color: #4a8fda;
+    background-color: #21051F;
     color: #e8e8e8;
     text-transform: uppercase;
     text-decoration: none;
+    display: block;
+    margin: 0 auto;
     border-style: none;
-    font-size: 14px;
 }
 
-#wallpaper-section a:hover {
+#wallpaper-section button:hover {
     padding: 7px;
-    background-color: #4a8fda;
+    background-color: rgb(61, 12, 41);
     color: #e8e8e8;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
 }
 
 #wallpaper-div {
