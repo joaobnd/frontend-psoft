@@ -7,17 +7,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
-    background-color: #F8F8F8;
+    background-color: #21051F;
 }
 
 h2 {
     text-align: center;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     color: #777;
     margin: 8px;
 }
-
 
 .main-header {
     position: inherit;
@@ -136,4 +135,13 @@ footer {
     text-align: center;
     color: #F8F8F8;
     font-size: 13px;
+}
+
+.load {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    color: #F8F8F8;
 }
