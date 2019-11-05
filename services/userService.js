@@ -39,24 +39,12 @@ function registerUser() {
         password: $password
     };
 
-    let $loadingMsg = document.createElement('h3');
-    $loadingMsg.innerHTML = 'Aguarde um momento.';
-    $loadingMsg.style.textAlign = 'center';
-    $loadingMsg.style.color = '#4a8fda';
-    document.querySelector('#register-form-section').appendChild($loadingMsg);
-
-    let $loadingGif = document.createElement('img');
-    $loadingGif.src = '../styles/img/loading.gif'
-    $loadingGif.style.height = '50px';
-    $loadingGif.style.display = 'block';
-    $loadingGif.style.margin = '0 auto';
-    $loadingGif.style.marginTop = '10px';
-    document.querySelector('#register-form-section').appendChild($loadingGif);
+    loadElements();
 
     fetch('http://localhost:8080/v1/api/users', {
         method: 'POST',
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8000/',
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json; charset=utf-8'
         },
         body: JSON.stringify(user)
@@ -75,4 +63,20 @@ function registerUser() {
         alert("Ocorreu um erro com o servidor, tente novamente mais tarde");
         window.location.href = './register.html';
     });
+};
+
+function loadElements() {
+    let $loadingMsg = document.createElement('h3');
+    $loadingMsg.innerHTML = 'Aguarde um momento.';
+    $loadingMsg.style.textAlign = 'center';
+    $loadingMsg.style.color = '#4a8fda';
+    document.querySelector('#register-form-section').appendChild($loadingMsg);
+
+    let $loadingGif = document.createElement('img');
+    $loadingGif.src = '../styles/img/loading.gif'
+    $loadingGif.style.height = '50px';
+    $loadingGif.style.display = 'block';
+    $loadingGif.style.margin = '0 auto';
+    $loadingGif.style.marginTop = '10px';
+    document.querySelector('#register-form-section').appendChild($loadingGif);
 };

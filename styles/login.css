@@ -13,7 +13,7 @@ body {
 h2 {
     text-align: center;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 40px;
     color: #777;
     margin: 8px;
 }
@@ -80,15 +80,23 @@ h2 {
     width: 100%;    
 }
 
-#register-form-section {
+#login-form-section {
     margin-top: 20px;
     margin-bottom: 80px;
 }
 
-#register-form-section p{
+#login-form-section p{
+    margin-top: 15px;
     text-align: center;
     font-size: 14px;
     color: #666;
+}
+
+#login-form-section a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    color: #3A7ECA;
 }
 
 .submit-form {
