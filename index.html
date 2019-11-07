@@ -7,7 +7,7 @@
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" type="text/css" href="./styles/index.css">
-    <script src="services/authVerification.js" type="module"></script>
+    
 </head>
 <body>
     <header class="main-header">
@@ -69,5 +69,28 @@
             </div>
         </div>
     </footer>
+    <script>
+        hideContent();
+
+        /**
+         * Exclui os botões de criar conta e login e cria o de perfil quando o usuário está logado
+         */
+        function hideContent() {
+            let $login = document.querySelector("#login-btn");
+            let $register = document.querySelector("#register-btn");
+            let $profile = document.querySelector("#profile-btn");
+
+            // Usuário está logado
+            if (localStorage.getItem("token") != null) {
+                $login.style.display = "none";
+                $register.style.display = "none";
+                $profile.style.display = "block";
+            } else {
+                $profile.style.display = "none";
+                $login.style.display = "block"
+                $register.style.display = "block"
+            }
+        };
+    </script>
 </body>
 </html>

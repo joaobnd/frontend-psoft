@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../styles/campaigns.css">
     <script src="../services/userService.js" type="module"></script>
     <script src="../services/authVerification.js" type="module"></script>
+    <script src="../services/logoutService.js" type="module"></script>
+
 </head>
 <body>
     <!-- NAVBAR -->
@@ -43,10 +45,12 @@
     </div>
 
     <!-- MEU PERFIL -->
-    <section id="register-form-section">
-        <div id="container-login">
+    <section id="profile-section">
+        <div id="container-options">
             <h2>Meu perfil</h2>
-            
+            <div id="options-div">
+                <a href="../index.html" id="logout-btn">Logout</a>
+            </div>
         </div>
     </section>  
     
@@ -60,5 +64,28 @@
             </div>
         </div>
     </footer>
+    <script>
+        hideContent();
+
+        /**
+         * Exclui os botões de criar conta e login e cria o de perfil quando o usuário está logado
+         */
+        function hideContent() {
+            let $login = document.querySelector("#login-btn");
+            let $register = document.querySelector("#register-btn");
+            let $profile = document.querySelector("#profile-btn");
+
+            // Usuário está logado
+            if (localStorage.getItem("token") != null) {
+                $login.style.display = "none";
+                $register.style.display = "none";
+                $profile.style.display = "block";
+            } else {
+                $profile.style.display = "none";
+                $login.style.display = "block"
+                $register.style.display = "block"
+            }
+        };
+    </script>
 </body>
 </html>

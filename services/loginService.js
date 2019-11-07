@@ -4,11 +4,6 @@ $submit_button.addEventListener('click', () => {
     checkFields();
 });
 
-if (localStorage.getItem("token") != null || localStorage.getItem("token") != "") {
-    alert("Você já está logado!");
-    window.location.href = "../index.html";
-}
-
 /**
  * Confere se os campos estão devidamente preenchidos para poder submeter o login
  */
@@ -68,20 +63,11 @@ function submitLogin() {
 };
 
 /**
- * Desloga o usuário do sistema.
- */
-function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
-    window.location.href = "index.html";
-}
-
-/**
  * Cria os elementos de carregamento na página.
  */
 function loadElements() {
     let $loadingMsg = document.createElement('h3');
-    $loadingMsg.innerHTML = 'Aguarde um momento';
+    $loadingMsg.innerHTML = 'Fazendo login...';
     $loadingMsg.style.textAlign = 'center';
     $loadingMsg.style.color = '#4a8fda';
     document.querySelector('#login-form-section').appendChild($loadingMsg);
