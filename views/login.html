@@ -8,7 +8,6 @@
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/login.css">
     <script src="../services/loginService.js" type="module"></script>
-    <script src="../services/authVerification.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -29,6 +28,11 @@
                 </li>
                 <li id="create-campaign-btn">
                     <a href="create-campaign.html">lançar campanha</a>
+                </li>
+                <li id="profile-btn">
+                    <a href="./views/profile.html" id="logo-btn">
+                        <img src="../styles/img/profile.png" alt="Profile">
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -54,7 +58,7 @@
                     <input type="password" id="login-password" required>
                 </div>
                 <div class="form-group" id="forgot-password-div">
-                    <a href="">Esqueci minha senha</a>
+                    <a href="forgot-password.html">Esqueci minha senha</a>
                 </div>
                 <div class="form-group" >
                     <button class="button" type="submit">Criar conta</button>
