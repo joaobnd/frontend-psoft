@@ -7,25 +7,31 @@
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <script src="services/authVerification.js" type="module"></script>
 </head>
 <body>
     <header class="main-header">
         <nav id="navbar">
-            <ul>
-                <li>
+            <ul id="navbar-ul">
+                <li id="inicio-btn">
                     <a href="index.html">inicio</a>
                 </li>
-                <li> 
+                <li id="campaigns-btn"> 
                     <a href="./views/campaigns.html">campanhas</a> 
                 </li>
-                <li> 
+                <li id="register-btn"> 
                     <a href="./views/register.html">criar conta</a>
                 </li>
-                <li> 
+                <li id="login-btn"> 
                     <a href="./views/login.html">login</a>
                 </li>
-                <li>
+                <li id="create-campaign-btn">
                     <a href="./views/create-campaign.html">lançar campanha</a>
+                </li>
+                <li id="profile-btn">
+                    <a href="./views/profile.html" id="logo-btn">
+                        <img src="../styles/img/profile.png" alt="Profile">
+                    </a>
                 </li>
             </ul>
         </nav>

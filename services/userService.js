@@ -60,14 +60,14 @@ function registerUser() {
         window.location.href = '../index.html';
     })
     .catch(error => {
-        alert("Ocorreu um erro com o servidor, tente novamente mais tarde");
+        alert('Não foi possível completar o cadastro: ' + error);
         window.location.href = './register.html';
     });
 };
 
 function loadElements() {
     let $loadingMsg = document.createElement('h3');
-    $loadingMsg.innerHTML = 'Aguarde um momento.';
+    $loadingMsg.innerHTML = 'Aguarde um momento';
     $loadingMsg.style.textAlign = 'center';
     $loadingMsg.style.color = '#4a8fda';
     document.querySelector('#register-form-section').appendChild($loadingMsg);

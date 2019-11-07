@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>AJuDE | Crowdfunding</title>
     <meta charset="UTF-8">
@@ -8,26 +8,32 @@
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/campaigns.css">
     <script src="../services/userService.js" type="module"></script>
+    <script src="../services/authVerification.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
     <header class="main-header">
         <nav id="navbar">
-            <ul>
-                <li>
+            <ul id="navbar-ul">
+                <li id="inicio-btn">
                     <a href="../index.html">inicio</a>
                 </li>
-                <li> 
-                    <a href="./campaigns.html">campanhas</a> 
+                <li id="campaigns-btn"> 
+                    <a href="campaigns.html">campanhas</a> 
                 </li>
-                <li> 
-                    <a href="./register.html">criar conta</a>
+                <li id="register-btn"> 
+                    <a href="register.html">criar conta</a>
                 </li>
-                <li> 
-                    <a href="./login.html">login</a>
+                <li id="login-btn"> 
+                    <a href="login.html">login</a>
                 </li>
-                <li>
-                    <a href="./create-campaign.html">lançar campanha</a>
+                <li id="create-campaign-btn">
+                    <a href="create-campaign.html">lançar campanha</a>
+                </li>
+                <li id="profile-btn">
+                    <a href="profile.html" id="logo-btn">
+                        <img src="../styles/img/profile.png" alt="Profile">
+                    </a>
                 </li>
             </ul>
         </nav>

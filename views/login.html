@@ -8,26 +8,27 @@
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/login.css">
     <script src="../services/loginService.js" type="module"></script>
+    <script src="../services/authVerification.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
     <header class="main-header">
         <nav id="navbar">
-            <ul>
-                <li>
+            <ul id="navbar-ul">
+                <li id="inicio-btn">
                     <a href="../index.html">inicio</a>
                 </li>
-                <li> 
-                    <a href="./campaigns.html">campanhas</a> 
+                <li id="campaigns-btn"> 
+                    <a href="campaigns.html">campanhas</a> 
                 </li>
-                <li> 
-                    <a href="./register.html">criar conta</a>
+                <li id="register-btn"> 
+                    <a href="register.html">criar conta</a>
                 </li>
-                <li> 
-                    <a href="./login.html">login</a>
+                <li id="login-btn"> 
+                    <a href="login.html">login</a>
                 </li>
-                <li>
-                    <a href="./create-campaign.html">lançar campanha</a>
+                <li id="create-campaign-btn">
+                    <a href="create-campaign.html">lançar campanha</a>
                 </li>
             </ul>
         </nav>
@@ -52,7 +53,9 @@
                     <label>Senha</label>
                     <input type="password" id="login-password" required>
                 </div>
-
+                <div class="form-group" id="forgot-password-div">
+                    <a href="">Esqueci minha senha</a>
+                </div>
                 <div class="form-group" >
                     <button class="button" type="submit">Criar conta</button>
                 </div>

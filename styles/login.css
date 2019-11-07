@@ -73,6 +73,14 @@ h2 {
     border: 1px solid #F8F8F8;
 }
 
+#profile-btn {
+    padding: 0px;
+}
+
+#profile-btn img{
+    height: 42px;
+}
+
 #aux-div {
     height: 50px;
     background-color: #131415;
@@ -132,6 +140,17 @@ h2 {
     background-color: #3A7ECA;
     padding: 10px 15px;
     font-size: 16px;
+}
+
+#forgot-password-div a{
+    color: #666;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+#forgot-password-div a:hover{
+    color: #3A7ECA;
+    text-decoration: none;
 }
 
 footer {

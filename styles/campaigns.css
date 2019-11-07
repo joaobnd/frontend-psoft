@@ -147,3 +147,11 @@ footer {
     color: #F8F8F8;
     font-size: 13px;
 }
+
+#profile-btn {
+    padding: 0px;
+}
+
+#profile-btn img{
+    height: 42px;
+}
