@@ -4,34 +4,59 @@ $submit_button.addEventListener('click', () => {
     let $email = document.querySelector('#form-email').value;
     event.preventDefault();
 
-    sendRecoveryEmail($email);
+    if ($email == '') {
+        alert('O campo de e-mail não pode estar vazio.');
+    } else {
+        sendRecoveryEmail($email);
+    }
 });
 
 function sendRecoveryEmail(email) {
-    
+    loadElements();
+
     fetch('http://localhost:8080/v1/api/users/password/new', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json; charset=utf-8'
         },
-        body: JSON.stringify(email)
+        body: email
     })
     .then(response => {
-        if(!response.ok) {
+        let msg = "";
+
+        if (!response.ok) {
             if (response.status == 404) {
-                alert("O e-mail inserido não está cadastrado.");
-                throw new Error('Ocorreu um erro: ' + response.status);
+                msg = 'O e-mail inserido não está cadastrado.';
             } else {
-                alert('Ocorreu um erro: ' + response.status);
-                window.location.href = 'forgot-password.html';
-                throw new Error('Ocorreu um erro: ' + response.status);
+                msg = 'Ocorreu um erro.';
             }
+            window.location.href = 'forgot-password.html'
+            throw new Error("Não foi possível completar a requisição: " + msg)
         }
-        return response.text();
+        return response.text()
     })
     .then(() => {
         alert('Em instantes você receberá um e-mail com um link para recuperar sua senha!');
         window.location.href = '../index.html';
     })
+    .catch(error => {
+        alert(error.message);
+    });
+};
+
+function loadElements() {
+    let $loadingMsg = document.createElement('h3');
+    $loadingMsg.innerHTML = 'Aguarde um momento';
+    $loadingMsg.style.textAlign = 'center';
+    $loadingMsg.style.color = '#4a8fda';
+    document.querySelector('#container-login').appendChild($loadingMsg);
+
+    let $loadingGif = document.createElement('img');
+    $loadingGif.src = '../styles/img/loading.gif'
+    $loadingGif.style.height = '50px';
+    $loadingGif.style.display = 'block';
+    $loadingGif.style.margin = '0 auto';
+    $loadingGif.style.marginTop = '10px';
+    document.querySelector('#container-login').appendChild($loadingGif);
 };
