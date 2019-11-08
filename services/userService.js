@@ -53,10 +53,13 @@ function registerUser() {
         if(!response.ok) {
             if(response.status == 409) {
                 alert('O usuário com o seguinte e-mail já está cadastrado!');
+                window.location.href = 'register.html';
+                throw new Error('Não foi possível completar o cadastro: ' + response.status);
+            } else {
+                alert('Não foi possível completar o cadastro: ' + response.status);
+                window.location.href = 'register.html';
+                throw new Error('Não foi possível completar o cadastro: ' + response.status);
             }
-            alert('Não foi possível completar o cadastro: ' + response.status);
-            window.location.href = 'login.html';
-            throw new Error('Não foi possível completar o cadastro: ' + response.status);
         }
         return response.text();
     })

@@ -56,7 +56,7 @@ function submitLogin() {
         localStorage.setItem('login', $email);
         window.location.href = '../index.html';
     })
-    .catch(error => {
+    .catch(() => {
         alert("Ocorreu um erro com o servidor, tente novamente mais tarde");
         window.location.href = 'login.html';
     });
