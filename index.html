@@ -50,7 +50,7 @@
     <!-- LANCE SUA CAMPANHA -->
     <section id="launch-section">
         <div id="launch-div">
-            <button>Lance sua campanha</button>
+            <button id="launch-btn">Lance sua campanha</button>
         </div>
     </section>
 
@@ -70,6 +70,12 @@
         </div>
     </footer>
     <script>
+        let $launch_btn = document.querySelector('#launch-btn');
+
+        $launch_btn.addEventListener('click', () => {
+            window.location.href = 'views/create-campaign.html';
+        })
+
         hideContent();
 
         /**
