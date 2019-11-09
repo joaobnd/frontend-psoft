@@ -45,6 +45,7 @@
     <section id="register-form-section">
         <div id="container-login">
             <h2>Cadastrar campanha</h2>
+            <p>* Todos os dados são obrigatórios</p>
             
             <form class="submit-form">
                 <div class="form-group">
@@ -54,7 +55,7 @@
 
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea id="campaign-description" cols="58" rows="8" maxlength="400"></textarea>
+                    <textarea id="campaign-description" cols="58" rows="8" maxlength="400" required></textarea>
                 </div>
 
                 <div class="form-group">
@@ -64,7 +65,7 @@
 
                 <div class="form-group">
                     <label>Encerra em</label>
-                    <select id="campaign-deadline-day">
+                    <select id="campaign-deadline-day" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

@@ -114,10 +114,11 @@ h2 {
 
 .submit-form select {
     font-size: 15px;
-    display: inline;
+    display: inline-block;
     padding-bottom: 8px;
     color: #666;
     padding: 7px;
+    margin-bottom: 8px;
 }
 
 .submit-form button {
