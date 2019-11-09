@@ -106,10 +106,18 @@ h2 {
     color: #666;
 }
 
-.submit-form input[type="text"], input[type="password"] {
+.submit-form input[type="text"], input[type="password"], input[type="number"] {
     padding: 7px;
     width: 100%;
     margin-bottom: 5px;
+}
+
+.submit-form select {
+    font-size: 15px;
+    display: inline;
+    padding-bottom: 8px;
+    color: #666;
+    padding: 7px;
 }
 
 .submit-form button {
@@ -129,7 +137,7 @@ h2 {
 footer {
     padding: 2px 0;
     background-color: #4a8fda;
-    position: absolute;
+    position: static;
     bottom:0;
     width:100%;
 }
