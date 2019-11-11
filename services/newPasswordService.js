@@ -13,6 +13,12 @@ function checkFields() {
     if ($password != $password_confirm) {
         alert('As senhas devem coincidir.');
     } else {
-        alert('OK');
+        changePassword();
     }
+};
+
+function changePassword() {
+    alert('OK');
+
+    window.location.href = 'index.html';
 };
