@@ -14,7 +14,7 @@ $submit_button.addEventListener('click', () => {
 function sendRecoveryEmail(email) {
     loadElements();
 
-    fetch('http://localhost:8080/v1/api/users/password/new', {
+    fetch('http://localhost:8080/v1/api/users/password', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -31,17 +31,18 @@ function sendRecoveryEmail(email) {
             } else {
                 msg = 'Ocorreu um erro.';
             }
-            window.location.href = 'forgot-password.html'
-            throw new Error("Não foi possível completar a requisição: " + msg)
+            window.location.href = 'forgot-password.html';
+            alert("Não foi possível completar a requisição: " + msg);
         }
-        return response.text()
+        return response.text();
     })
     .then(() => {
         alert('Em instantes você receberá um e-mail com um link para recuperar sua senha!');
         window.location.href = 'index.html';
     })
-    .catch(error => {
-        alert(error.message);
+    .catch(() => {
+        alert('Ocorreu um erro com o servidor, tente novamente mais tarde!');
+        window.location.href = 'forgot-password.html';
     });
 };
 

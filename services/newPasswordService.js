@@ -13,12 +13,65 @@ function checkFields() {
     if ($password != $password_confirm) {
         alert('As senhas devem coincidir.');
     } else {
-        changePassword();
+        checkToken($password);
     }
 };
 
-function changePassword() {
-    alert('OK');
+function checkToken(password) {
+    var url = window.location.href;
+    var token = url.split('?')[1].split('=')[1];
 
-    window.location.href = 'index.html';
+    changePassword(token,password);
+};
+
+function changePassword(token, newPassword) {
+    loadElements();
+    
+    fetch('http://localhost:8080/v1/api/users/password', {
+        method: 'PUT',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'token' : token
+        },
+        body: newPassword
+    })
+    .then(response => {
+        let msg = "";
+
+        if (!response.ok) {
+            if (response.status == 403) {
+                msg = 'Este link expirou, solicite outro!';
+            } else {
+                msg = 'Ocorreu um erro.';
+            }
+            window.location.href = 'forgot-password.html';
+            alert("Não foi possível completar a requisição: " + msg);
+        }
+        return response.text();
+    })
+    .then(() => {
+        alert('Senha alterada com sucesso!');
+        window.location.href = 'login.html';
+    })
+    .catch(() => {
+        alert('Ocorreu um erro com o servidor, tente novamente mais tarde!');
+        
+    });
+};
+
+function loadElements() {
+    let $loadingMsg = document.createElement('h3');
+    $loadingMsg.innerHTML = 'Aguarde um momento';
+    $loadingMsg.style.textAlign = 'center';
+    $loadingMsg.style.color = '#4a8fda';
+    document.querySelector('#container-login').appendChild($loadingMsg);
+
+    let $loadingGif = document.createElement('img');
+    $loadingGif.src = '../styles/img/loading.gif'
+    $loadingGif.style.height = '50px';
+    $loadingGif.style.display = 'block';
+    $loadingGif.style.margin = '0 auto';
+    $loadingGif.style.marginTop = '10px';
+    document.querySelector('#container-login').appendChild($loadingGif);
 };
