@@ -138,8 +138,8 @@ h2 {
 footer {
     padding: 2px 0;
     background-color: #4a8fda;
-    position: static;
-    bottom:0;
+    bottom: 0%;
+    position: fixed;
     width:100%;
 }
 

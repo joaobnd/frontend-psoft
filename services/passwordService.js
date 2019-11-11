@@ -38,7 +38,7 @@ function sendRecoveryEmail(email) {
     })
     .then(() => {
         alert('Em instantes você receberá um e-mail com um link para recuperar sua senha!');
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
     })
     .catch(error => {
         alert(error.message);
