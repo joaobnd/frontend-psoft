@@ -27,12 +27,13 @@ function checkToken(password) {
 function changePassword(token, newPassword) {
     loadElements();
     
-    fetch('http://localhost:8080/v1/api/users/password', {
+    let link = 'http://localhost:8080/v1/api/users/password/new' + '?token=' + token;
+
+    fetch(link, {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json; charset=utf-8',
-            'token' : token
         },
         body: newPassword
     })
@@ -55,6 +56,7 @@ function changePassword(token, newPassword) {
         window.location.href = 'login.html';
     })
     .catch(() => {
+        alert(token);
         alert('Ocorreu um erro com o servidor, tente novamente mais tarde!');
         
     });
