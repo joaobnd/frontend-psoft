@@ -8,6 +8,7 @@
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/create-campaign.css">
     <script src="../services/campaignService.js" type="module"></script>
+    <script src="../services/router/router.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -98,7 +99,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select id="campaign-deadline-month">
+                    <select id="campaign-deadline-month" required>
                         <option value="Janeiro">Janeiro</option>
                         <option value="Fevereiro">Fevereiro</option>
                         <option value="Março">Março</option>
@@ -112,7 +113,7 @@
                         <option value="Novembro">Novembro</option>
                         <option value="Dezembro">Dezembro</option>
                     </select>
-                    <select id="campaign-deadline-year">
+                    <select id="campaign-deadline-year" required>
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
