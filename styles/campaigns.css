@@ -10,6 +10,14 @@ body {
     background-color: #F8F8F8;
 }
 
+h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+    color: #777;
+    margin: 8px;
+}
+
 .main-header {
     position: inherit;
     padding-top: 20px;
@@ -72,66 +80,15 @@ body {
     width: 100%;   
 }
 
-#wallpaper-section div {
-    background-color: #f8f8f8;
-    margin-top: 50px;
-    height: 340px;
-    text-align: center;    
-}
-
-#wallpaper-section img {
-    margin: 0 auto;
-    display: block;
-    image-resolution: cover;
-}
-
-#wallpaper-section button {
-    padding: 7px;
-    background-color: #21051F;
-    color: #e8e8e8;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    margin: 0 auto;
-    border-style: none;
-}
-
-#wallpaper-section button:hover {
-    padding: 7px;
-    background-color: rgb(61, 12, 41);
-    color: #e8e8e8;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    margin: 0 auto;
-    font-size: 14px;
-}
-
-#wallpaper-div {
-    background-color: #F8F8F8;
-}
-
-#launch-section {
-    background-image: url(./img/ideia.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    background-color: #4a8fda;
-    height: 370px;
+#container-campaigns {
+    margin: 50px 15%;
     text-align: center;
 }
 
-#launch-div button{
-    font-size: 22px;
-    text-transform: uppercase;
-    position: inherit;
-    margin: 0 auto;
-    margin-top: 200px;
-    padding: 25px;
-    border-style: none;
+#campaigns-list {
+    border: 2px;
+    border-color: #555;
 }
-
 
 footer {
     padding: 2px 0;

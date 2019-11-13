@@ -39,10 +39,6 @@ function submitCampaign() {
         status: 'Ativa',
         goal: $goal
     };
-
-    alert(data.deadLine)
-    
-
 }
 
 function generateUrl() {
