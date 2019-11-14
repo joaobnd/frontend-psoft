@@ -16,12 +16,14 @@ function checkFields() {
     let $deadline_month = document.querySelector('#campaign-deadline-month').value;
     let $deadline_year = document.querySelector('#campaign-deadline-year').value;
 
+    event.preventDefault();
+
     if ($name == "" || $description == "" || $goal == "" || $deadline_day == "" || $deadline_month == "" || $deadline_year == "") {
         alert('Todos os campos devem ser preenchidos!');
     } else {
         submitCampaign();
-    }
-}
+    };
+};
 
 function submitCampaign() {
     let $name = document.querySelector('#campaign-name').value;
@@ -30,8 +32,11 @@ function submitCampaign() {
     let $deadline_day = document.querySelector('#campaign-deadline-day').value;
     let $deadline_month = document.querySelector('#campaign-deadline-month').value;
     let $deadline_year = document.querySelector('#campaign-deadline-year').value;
-    
+    let userToken = localStorage.getItem('token');
+    let time = new Date();
+
     let data = {
+        id: 1651,
         name: $name,
         urlId: generateUrl(),
         description: $description,
@@ -39,7 +44,45 @@ function submitCampaign() {
         status: 'Ativa',
         goal: $goal
     };
-}
+
+    fetch('http://localhost:8080/v1/api/campaigns', {
+        method: 'POST',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + userToken
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if(!response.ok) {
+            let msg = '';
+            if(response.status == 403) {
+                msg = 'Por favor, faça login para poder prosseguir!';
+                window.location.href = 'login.html';
+                throw new Error('Não foi possível completar o cadastro: ' + msg);
+            } else if(response.status == 401) {
+                msg = 'Você não tem permissão para realizar o cadastro!';
+                window.location.href = 'login.html';
+                throw new Error('Não foi possível completar o cadastro: ' + msg);
+            } else if(response.status == 400) {
+                msg = 'A data de encerramento deve ser no futuro';
+                throw new Error('Não foi possível completar o cadastro: ' + msg);
+            } 
+            else {
+                throw new Error('Não foi possível completar o cadastro: ' + msg);
+            }
+        }
+        return response.text();
+    })
+    .then(() => {
+        alert('Campanha cadastrada com sucesso!');
+        location.href = 'campaigns.html'
+    })
+    .catch(error => {
+        alert(error.message);
+    })
+};
 
 function generateUrl() {
     let url = document.querySelector('#campaign-name').value;
@@ -50,7 +93,7 @@ function generateUrl() {
                               .replace(/\-\-+/g, ' ')
                               .replace(/(^-+|-+$)/, '');
     return url;
-}
+};
 
 function getMonthNumber(month) {
     if (month === 'Janeiro') {
@@ -77,5 +120,5 @@ function getMonthNumber(month) {
         return '11';
     } else {
         return '12';
-    }
-}
+    };
+};

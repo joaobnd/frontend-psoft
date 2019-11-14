@@ -40,7 +40,7 @@ function registerUser() {
     };
 
     loadElements();
-
+    
     fetch('http://localhost:8080/v1/api/users', {
         method: 'POST',
         headers: {
