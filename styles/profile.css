@@ -16,6 +16,7 @@ h2 {
     font-size: 40px;
     color: #777;
     margin: 8px;
+    padding-top: 10px;
 }
 
 .main-header {
@@ -81,7 +82,7 @@ h2 {
 }
 
 #container-options {
-    margin: 5% 15%;
+    margin: 3% 15%;
     background-color: #E8E8E8;
 }
 
@@ -89,6 +90,7 @@ h2 {
     display: flex;
     justify-content: center;
     list-style: none;
+    border-top: 7px solid #F8F8F8;
 }
 
 #options-navbar ul li{
@@ -103,6 +105,10 @@ h2 {
 #options-navbar a {
     text-decoration: none;
     color: #444;
+}
+
+#options-navbar a:hover {
+    border-bottom: 1.6px solid #444;
 }
 
 #options-navbar a:visited {
