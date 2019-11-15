@@ -24,6 +24,7 @@ h2 {
     width: 100%;    
     height: 60px;
     background-color: #4a8fda;
+    background: linear-gradient(to right, #39409E, #4a8fda) no-repeat 00 / cover;
     opacity: 100%;
     position: absolute;
 }

@@ -7,8 +7,7 @@
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/profile.css">
-    <script src="../services/userService.js" type="module"></script>
-    <script src="../services/logoutService.js" type="module"></script>
+    <script src="../services/profileService.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -44,26 +43,41 @@
 
     <!-- MEU PERFIL -->
     <section id="profile-section">
-        <div id="container-options">
-            <h2>Meu perfil</h2>
-            <div id="options-div">
-                <nav id="options-navbar">
-                    <ul>
-                        <li>
-                            <a href="#" id="my-data-btn">Meus dados</a>
-                        </li>
-                        <li>
-                            <a href="#" id="my-campaigns-btn">Minhas campanhas</a>
-                        </li>  
-                        <li>
-                            <a href="index.html" id="logout-btn">Logout</a>
-                        </li>
-                    </ul>
-                </nav>
+        <div id="container">
+            <div id="logout-div">
+                <button id="logout-btn">Sair <img src="../styles/img/logout.png" alt="logout icon"></button>
             </div>
+            <h2>Meu cadastro</h2>
         </div>
     </section>  
     
+    <!-- DADOS -->
+    <section id="my-data-section">
+        <h3>
+            Meus dados
+        </h3>
+        <div id="my-data-div">
+            <ul>
+                <li>
+                    <span>Nome</span>
+                </li>
+                <li>
+                    <span>Último nome</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CAMPANHAS -->
+    <section id="my-campaigns-section">
+        <h3>
+            Minhas campanhas
+        </h3>
+        <div id="my-campaigns-div">
+            
+        </div>
+    </section>
+
     <!-- RODAPÉ -->
     <footer class="center-footer">
         <div class="sub-footer">

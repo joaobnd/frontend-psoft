@@ -7,15 +7,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
-    background-color: #F8F8F8;
+    background-color: #F6F6F6;
 }
 
 h2 {
     text-align: center;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 37px;
     color: #777;
-    margin: 8px;
+    margin: 4px;
 }
 
 .main-header {
@@ -24,8 +24,9 @@ h2 {
     width: 100%;    
     height: 60px;
     background-color: #4a8fda;
-    opacity: 80%;
-    position: fixed;
+    background: linear-gradient(to right, #39409E, #4a8fda) no-repeat 00 / cover;
+    opacity: 100%;
+    position: absolute;
 }
 
 .main-header a {
@@ -81,7 +82,7 @@ h2 {
 }
 
 #container-campaigns {
-    margin: 50px 15%;
+    margin: 30px 0%;
     text-align: center;
 }
 
@@ -90,9 +91,47 @@ h2 {
     border-color: #555;
 }
 
+#campaigns-search {
+    margin-top: 5px;
+    height: 200px;
+}
+
+#campaigns-search form{
+    box-sizing: flex;
+    height: 60px;
+    padding: 30px 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+#campaigns-search input{
+    width: 80%;
+    height: 30px;
+    display: flexbox;
+    margin: 0 auto;
+    padding: 13px 20px;
+    padding-top: 20px;
+    border-radius: 4px;
+    border: none;
+    font-size: 20px;
+    color: #4a4a4a;
+}
+
+#search-btn {
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 0px;
+    padding: 18px;
+    color: #eeeeee;
+    background-color: #4a8fda;
+}
 footer {
     padding: 2px 0;
     background-color: #4a8fda;
+    bottom: 0%;
+    position: absolute;
+    width:100%;
 }
 
 #launch-div button:hover{
