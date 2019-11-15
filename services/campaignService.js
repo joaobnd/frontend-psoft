@@ -1,6 +1,6 @@
-// if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
-//     window.location.href = "login.html";
-// };
+if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
+    window.location.href = "login.html";
+};
 
 let $submit_btn = document.querySelector('button');
 
@@ -15,7 +15,7 @@ function checkFields() {
     let $deadline_day = document.querySelector('#campaign-deadline-day').value;
     let $deadline_month = document.querySelector('#campaign-deadline-month').value;
     let $deadline_year = document.querySelector('#campaign-deadline-year').value;
-
+    
     event.preventDefault();
 
     if ($name == "" || $description == "" || $goal == "" || $deadline_day == "" || $deadline_month == "" || $deadline_year == "") {
@@ -33,7 +33,6 @@ function submitCampaign() {
     let $deadline_month = document.querySelector('#campaign-deadline-month').value;
     let $deadline_year = document.querySelector('#campaign-deadline-year').value;
     let userToken = localStorage.getItem('token');
-    let time = new Date();
 
     let data = {
         id: 1651,

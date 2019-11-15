@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #F8F8F8;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+    color: #777;
+    margin: 8px;
+}
+
+.main-header {
+    position: inherit;
+    padding-top: 20px;
+    width: 100%;    
+    height: 60px;
+    background-color: #4a8fda;
+    opacity: 80%;
+    position: fixed;
+}
+
+.main-header a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-header a:hover {
+    border-bottom:3px solid #F8F8F8;
+}
+.main-header ul{    
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.main-header ul li {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 12px;
+    display: inline;
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+.main-header li:first-child a{
+    text-transform: uppercase;
+    border-color: white;
+    margin-right: 70px;
+    color: white;
+    
+}
+
+.main-header li:nth-child(5) a{
+    border-color: white;
+    padding: 7px;   
+    color: white;
+    border: 1px solid #F8F8F8;
+}
+
+.main-header li:nth-child(5) a:hover {
+    background-color: #F8F8F8;
+    padding: 7px;   
+    color: #131415;
+    border: 1px solid #F8F8F8;
+}
+
+#aux-div {
+    height: 50px;
+    background-color: #4a8fda;
+    padding-top: 30px;
+    width: 100%;   
+}
+
+#container-options {
+    margin: 5% 15%;
+    background-color: #E8E8E8;
+}
+
+#options-navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+#options-navbar ul li{
+    background-color: #E8E8E8;
+    display: inline;
+    margin: 5px 30px;
+    font-style: normal;
+    text-decoration: none;
+    list-style: none;
+}
+
+#options-navbar a {
+    text-decoration: none;
+    color: #444;
+}
+
+#options-navbar a:visited {
+    color: #444;
+}
+
+footer {
+    position: absolute;
+    bottom:0;
+    width:100%;
+    padding: 2px 0;
+    background-color: #4a8fda;    
+}
+
+#text-footer {
+    text-align: center;
+    color: #F8F8F8;
+    font-size: 13px;
+}
+
+#profile-btn {
+    padding: 0px;
+}
+
+#profile-btn img{
+    height: 42px;
+}
