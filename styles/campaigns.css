@@ -96,7 +96,7 @@ h2 {
     height: 200px;
 }
 
-#campaigns-search form{
+#campaign-form{
     box-sizing: flex;
     height: 60px;
     padding: 30px 30px;
@@ -104,7 +104,7 @@ h2 {
     margin: 0 auto;
 }
 
-#campaigns-search input{
+#campaign-form input{
     width: 80%;
     height: 30px;
     display: flexbox;
