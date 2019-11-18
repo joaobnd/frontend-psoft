@@ -55,9 +55,7 @@ function changePassword(token, newPassword) {
         window.location.href = 'login.html';
     })
     .catch(() => {
-        alert(token);
         alert('Ocorreu um erro com o servidor, tente novamente mais tarde!');
-        
     });
 };
 

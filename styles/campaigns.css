@@ -1,3 +1,5 @@
+/* ALL FILES */
+
 * {
     margin: 0;
     padding: 0;
@@ -81,6 +83,8 @@ h2 {
     width: 100%;   
 }
 
+/* SEARCH CAMPAIGN */
+
 #container-campaigns {
     margin: 30px 0% 25px 0%;
     text-align: center;
@@ -154,8 +158,6 @@ h2 {
     color: #444;
 }
 
-
-
 footer {
     padding: 2px 0;
     background-color: #4a8fda;
@@ -180,4 +182,121 @@ footer {
 
 #profile-btn img{
     height: 42px;
+}
+
+/* CAMPAIGN */
+
+#campaign-header {
+    background-color: #EEE;
+    width: 900px;
+    margin: 30px auto;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#campaign-header img{
+    margin: 0 auto;
+    display: block;
+}
+
+#campaign-header h3{
+    color: #4a8fda;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#campaign-header span{
+    color: #4a8fda;
+    font-size: 60px;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}
+
+
+#container-list {
+    background-color: #4a8fda;
+    width: 900px;
+    margin: 30px auto;
+    display: block;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#container-list div{
+    background-color: #4a8fda;
+    float: left;
+    width: 33,3%;
+    height: 100px;
+    border: 1px solid #CCC;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+#owner-div {
+    width: 90px;
+    padding: 20px 20px;
+    text-align: center;
+    color: #FFF;
+}
+
+#owner-div a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+#deadline-div {
+    width: 90px;
+    padding: 20px 5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 12px;
+}
+
+#deadline-div p{
+    margin-bottom: 7px;
+}
+
+#deadline-div span{
+    font-size: 15px;
+    color: #4a8fda;
+    background-color: #FFF;
+    padding: 3px 10px;
+    text-transform: uppercase;
+}
+
+#status-div {
+    text-align: center;
+    color: #FFF;
+    width: 90px;
+}
+
+#status-div p{
+    margin-bottom: 3px;
+}
+
+#status-div span{
+    color: #4a8fda;
+    background-color: #FFF;
+    padding: 3px 10px;
+    text-transform: uppercase;
+}
+
+#description-div {
+    float: left;
+    color: #F8F8F8;
+    width: 542px;
+    text-align: center;
+}
+
+#campaign-content {
+    background-color: #EEE;
+    width: 900px;
+    margin: 30px auto;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
