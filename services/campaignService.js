@@ -2,7 +2,7 @@ if (localStorage.getItem('token') == null || localStorage.getItem('token') == ''
     window.location.href = "login.html";
 };
 
-let $submit_btn = document.querySelector('button');
+const $submit_btn = document.querySelector('button');
 
 $submit_btn.addEventListener('click', () => {
     checkFields();

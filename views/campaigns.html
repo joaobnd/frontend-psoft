@@ -7,7 +7,7 @@
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/campaigns.css">
-    
+    <script src="../services/campaignListService.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -48,7 +48,7 @@
             
             <div id="campaigns-search">
                 <form id="campaign-form">
-                    <input type="text" id="search-value" placeholder="Estou procurando por...">
+                    <input type="text" id="search-value" placeholder="Estou procurando por..." required>
                     <button id="search-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" 
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
@@ -62,7 +62,7 @@
                 <form id="campaign-filter">
                     <span>Filtrar campanha</span>
 
-                    <input type="checkbox" id="active-option">
+                    <input type="checkbox" id="active-option" checked>
                     <label for="active-option">Ativa</label>
 
                     <input type="checkbox" id="finished-option">
@@ -80,10 +80,9 @@
     </section>  
     
     <!-- CAMPANHAS -->
-
     <section id="campaigns-section">
-        <div id="container">
-            
+        <div id="container-list">
+
         </div>
     </section>
 
