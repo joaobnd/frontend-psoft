@@ -189,7 +189,7 @@ footer {
 #campaign-header {
     background-color: #EEE;
     width: 900px;
-    margin: 30px auto;
+    margin: 30px auto 0px auto;
     display: block;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -217,7 +217,7 @@ footer {
     font-size: 20px;
     display: inline;
     font-weight: bold;
-    padding: 10px auto 5px auto;
+    padding: 15px auto 5px auto;
     color: #F8F8F8;
 }
 
@@ -235,7 +235,7 @@ footer {
 #container-list {
     background-color: #4a8fda;
     width: 900px;
-    margin: 30px auto;
+    margin: 15px auto;
     display: block;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -296,8 +296,9 @@ footer {
 #status-div span{
     color: #4a8fda;
     background-color: #FFF;
-    padding: 3px 10px;
+    padding: 3px 5px;
     text-transform: uppercase;
+    font-size: 13px;
 }
 
 #description-div {
@@ -307,11 +308,34 @@ footer {
     text-align: center;
 }
 
-#campaign-content {
-    background-color: #EEE;
+#aux-div-2 {
+    height: 90px;
+    background-color: #F8F8F8;
+    padding-top: 30px;
+    width: 100%;   
+}
+
+#manage-container {
     width: 900px;
-    margin: 30px auto;
+    margin: 10px auto;
     display: block;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    background-color: #EEE;
+    text-align: center;
+    height: 38px;
+    border: solid 1px #4a8fda;
+}
+
+#manage-container a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #4a8fda;
+    padding: 8px 298px;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#manage-container a:hover{
+    background-color: #1a4472;
+    color: #E8E8E8;
 }

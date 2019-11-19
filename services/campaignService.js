@@ -18,13 +18,14 @@ window.onload = () => {
             window.location.href = 'index.html';
         } else if(response.status == 500) {
             window.location.href = 'index.html';
-            alert('Você precisa fazer login para acessar essa página')
+            logout();
+            alert('Faça login novamente!')
         }
         response.json().then(data => {
             renderElements(data);
         });
     })
-    .catch(error => {
+    .catch(() => {
         window.location.href = 'index.html';
     });
 };
@@ -41,13 +42,48 @@ function renderElements(data) {
     let $status = document.querySelector('#campaign-status');
     let $description = document.querySelector('#campaign-description');
     let $percent = document.querySelector('#percent-value');
+    let $current_value = document.querySelector('#current-value');
 
     $title.innerHTML = data.name;
+    $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
     $goal.innerHTML = data.goal + ',00';
     $fname.innerHTML = data.owner.firstName;
     $lname.innerHTML = data.owner.lastName;
-    $deadline.innerHTML = data.deadLine;
     $status.innerHTML = data.status;
     $description.innerHTML = data.description;
-    
+    let str = data.deadLine;
+    $deadline.innerHTML = str.substring(8) + '/' + str.substring(5, 7) + '/' + str.substring(0, 4);
+    $percent.innerHTML = getCampaignPercent(data.donations, data.goal);
+};
+
+function getCurrentValue(donations) {
+    let sum = 0;
+
+    for (let i = 0; i < donations.length; i++) {
+        sum += donations[i].value;
+    };
+
+    return sum;
 }
+
+function getCampaignPercent(donations, goal) {
+    let sum = 0;
+    let percent;
+
+    for (let i = 0; i < donations.length; i++) {
+        sum += donations[i].value;
+    };
+
+    percent = (sum * 100) / goal;
+
+    return parseFloat(percent.toFixed(2)) + '%';
+};
+
+/**
+ * Desloga o usuário do sistema.
+ */
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
+};
