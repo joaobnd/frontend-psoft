@@ -202,18 +202,33 @@ footer {
 
 #campaign-header h3{
     color: #4a8fda;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     text-align: center;
     font-size: 34px;
     font-weight: bold;
 }
 
-#campaign-header span{
-    color: #4a8fda;
-    font-size: 60px;
+#campaign-title-div {
+    background-color: #4a8fda;
+    text-align: center;
+}
+
+#campaign-title-div p{
+    font-size: 20px;
+    display: inline;
+    font-weight: bold;
+    padding: 10px auto 5px auto;
+    color: #F8F8F8;
+}
+
+#percent-value {
+    color: #F8F8F8;
+    background-color: #4a8fda;
+    font-size: 50px;
     text-align: center;
     display: block;
     font-weight: bold;
+    padding: 0px 5px;
 }
 
 
