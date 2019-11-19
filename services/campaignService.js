@@ -14,16 +14,18 @@ window.onload = () => {
         }
     })
     .then(response => {
-        if(!response.ok) {
-            alert('erro')
+        if(response.status == 404) {
+            window.location.href = 'index.html';
+        } else if(response.status == 500) {
+            window.location.href = 'index.html';
+            alert('Você precisa fazer login para acessar essa página')
         }
-        return response.text();
-    })
-    .then(data => {
-        alert(data.name)
+        response.json().then(data => {
+            renderElements(data);
+        });
     })
     .catch(error => {
-        alert(error.message);
+        window.location.href = 'index.html';
     });
 };
 
@@ -41,9 +43,9 @@ function renderElements(data) {
     let $percent = document.querySelector('#percent-value');
 
     $title.innerHTML = data.name;
-    $goal.innerHTML = data.goal;
-    $fname.innerHTML = data.owner;
-    $lname.innerHTML = data.owner;
+    $goal.innerHTML = data.goal + ',00';
+    $fname.innerHTML = data.owner.firstName;
+    $lname.innerHTML = data.owner.lastName;
     $deadline.innerHTML = data.deadLine;
     $status.innerHTML = data.status;
     $description.innerHTML = data.description;
