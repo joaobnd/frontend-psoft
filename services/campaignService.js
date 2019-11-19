@@ -1,31 +1,30 @@
 window.onload = () => {
     let $hash = location.hash.split('#')[1];
 
-    // if ($hash == '' || $hash == null) {
-    //     window.location.href = 'index.html';
-    // }
+    if ($hash == '' || $hash == null) {
+        window.location.href = 'index.html';
+    }
 
-    // fetch('http://localhost:8080/v1/api/campaigns?url=' + $hash, {
-    //     method: 'GET',
-    //     headers: {
-    //         'Access-Control-Allow-Origin': '*',
-    //         'Content-Type': 'application/json; charset=utf-8',
-    //         'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //     }
-    // })
-    // .then(response => {
-    //     if(!response.ok) {
-    //         window.location.href = 'index.html';
-    //     }
-    //     return response.text();
-    // })
-    // .then(data => {
-    //     renderElements(data);
-    // })
-    // .catch(() => {
-    //     window.location.href = 'index.html';
-    //     alert(error.message);
-    // });
+    fetch('http://localhost:8080/v1/api/campaigns/' + $hash, {
+        method: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
+    .then(response => {
+        if(!response.ok) {
+            alert('erro')
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data.name)
+    })
+    .catch(error => {
+        alert(error.message);
+    });
 };
 
 /**
@@ -41,10 +40,10 @@ function renderElements(data) {
     let $description = document.querySelector('#campaign-description');
     let $percent = document.querySelector('#percent-value');
 
-    $title.innerHTML = data.title;
+    $title.innerHTML = data.name;
     $goal.innerHTML = data.goal;
-    $fname.innerHTML = data.owner.firstName;
-    $lname.innerHTML = data.owner.lastName;
+    $fname.innerHTML = data.owner;
+    $lname.innerHTML = data.owner;
     $deadline.innerHTML = data.deadLine;
     $status.innerHTML = data.status;
     $description.innerHTML = data.description;
