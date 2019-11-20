@@ -95,6 +95,9 @@ function generateUrl() {
     return url;
 };
 
+/**
+ * Retorna o número do mês de acordo com o nome.
+ */
 function getMonthNumber(month) {
     if (month === 'Janeiro') {
         return '01';
