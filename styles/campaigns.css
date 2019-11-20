@@ -20,6 +20,14 @@ h2 {
     margin: 4px;
 }
 
+h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #4a8fda;
+    margin: 4px;
+}
+
 .main-header {
     position: inherit;
     padding-top: 20px;
@@ -356,9 +364,10 @@ footer {
 
 .modal-content {
     background-color: #F8F8F8;
-    margin: 10% auto;
+    margin: 2% auto;
     padding: 20px;
-    width: 65%;
+    width: 700px;
+    height: 600px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     animation-name: modalopen;
     animation-duration: 0.5s;
@@ -379,4 +388,69 @@ footer {
 @keyframes modalopen {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+.modal-body {
+    margin: 10px 20%;
+}
+.modal-body label {
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 8px;
+    color: #6E6E6E;
+}
+
+.modal-body input[type="text"], textarea, input[type="number"] {
+    padding: 5px;
+    width: 400px;
+    margin-bottom: 15px;
+}
+
+.modal-body select {
+    font-size: 15px;
+    display: inline-block;
+    padding-bottom: 8px;
+    color: #666;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-body form {
+    margin-bottom: 20px;
+}
+
+.modal-body button {
+    display: block;
+    background-color: #E8E8E8;
+    color: #4a8fda;
+    font-weight: bold;
+    border: solid 1px #AAA;
+    padding: 6px 8px;
+    font-size: 16px;
+}
+
+
+.modal-body button:hover {
+    cursor: pointer;
+    background-color: #4a8fda;
+    color: #E8E8E8;
+}
+
+#finish-campaign-btn {
+    display: block;
+    background-color: #E8E8E8;
+    color: #b62d2d;
+    font-weight: bold;
+    border: solid 1px #AAA;
+    padding: 6px 8px;
+    font-size: 16px;
+}
+
+
+#finish-campaign-btn:hover {
+    cursor: pointer;
+    background-color: #b62d2d;
+    color: #E8E8E8;
 }

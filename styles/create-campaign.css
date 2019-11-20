@@ -107,7 +107,7 @@ h2 {
     color: #666;
 }
 
-.submit-form input[type="text"], input[type="password"], input[type="number"] {
+.submit-form input[type="text"], input[type="password"], input[type="number"], textarea {
     padding: 7px;
     width: 100%;
     margin-bottom: 5px;

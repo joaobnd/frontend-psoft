@@ -85,8 +85,8 @@ function showWidget(user) {
 
     if (user.email == localStorage.getItem('email')) {
         $manage_btn.style.display = 'block';
-    }
-}
+    };
+};
 
 /**
  * Desloga o usuário do sistema.
