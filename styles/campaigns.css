@@ -20,12 +20,14 @@ h2 {
     margin: 4px;
 }
 
-h3 {
+h4 {
     text-align: center;
     font-weight: bold;
-    font-size: 25px;
-    color: #4a8fda;
-    margin: 4px;
+    font-size: 22px;
+    color: #6E6E6E;
+    margin: 4px 110px 4px 130px;
+    padding: 5px 0px;
+    border-bottom: solid 0.8px #CCC;
 }
 
 .main-header {
@@ -366,7 +368,7 @@ footer {
     background-color: #F8F8F8;
     margin: 2% auto;
     padding: 20px;
-    width: 700px;
+    width: 650px;
     height: 600px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     animation-name: modalopen;
@@ -424,11 +426,12 @@ footer {
 .modal-body button {
     display: block;
     background-color: #E8E8E8;
-    color: #4a8fda;
+    color: #4a4a4a;
     font-weight: bold;
     border: solid 1px #AAA;
-    padding: 6px 8px;
+    padding: 6px 30px;
     font-size: 16px;
+    margin-bottom: 30px;
 }
 
 
@@ -446,6 +449,7 @@ footer {
     border: solid 1px #AAA;
     padding: 6px 8px;
     font-size: 16px;
+    margin: 10px 20%;
 }
 
 
