@@ -23,13 +23,13 @@ window.onload = () => {
         }
         response.json().then(data => {
             renderElements(data);
-            showWidget(data.owner);
+            showWidget(data);
             console.log(data);
         });
     })
     .catch(() => {
         window.location.href = 'index.html';
-        alert('Ocorreu um erro com o servidor!')
+        alert('Ocorreu um erro com o servidor!');
     });
 };
 
@@ -56,7 +56,6 @@ function renderElements(data) {
     let $description = document.querySelector('#campaign-description');
     let $percent = document.querySelector('#percent-value');
     let $current_value = document.querySelector('#current-value');
-    let $modal_bottom = document.querySelector('.modal-footer');
 
     $title.innerHTML = data.name;
     $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
@@ -70,10 +69,9 @@ function renderElements(data) {
     $percent.innerHTML = getCampaignPercent(data.donations, data.goal);
 
     if (data.status == 'Encerrada') {
-        $modal_bottom.style.display = 'none';
         $status.style.backgroundColor = '#b62d2d';
         $status.style.color = '#F8F8F8';
-    }
+    };
 };
 
 /**
@@ -104,12 +102,12 @@ function getCampaignPercent(donations, goal) {
 };
 
 /**
- * Mostra o widget de alteração das informações da campanha caso o usuário logado seja o dono dela.
+ * Mostra o widget de alteração das informações da campanha caso o usuário logado seja o dono dela e se a campanha não está encerrada.
  */
-function showWidget(user) {
+function showWidget(data) {
     let $manage_btn = document.querySelector('#manage-container');
 
-    if (user.email == localStorage.getItem('email')) {
+    if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada') {
         $manage_btn.style.display = 'block';
     };
 };
@@ -124,7 +122,7 @@ function logout() {
 };
 
 /**
- * 
+ * Realiza uma requisição ao servidor para encerrar uma campanha.
  */
 function finishCampaign() {
     let $hash = location.hash.split('#')[1];
@@ -151,7 +149,7 @@ function finishCampaign() {
             logout();
             alert('Faça login novamente!')
         }
-        response.json().then(data => {
+        response.json().then(() => {
             alert('Campanha encerrada com sucesso!');
             window.location.reload(true);
         });
@@ -161,3 +159,42 @@ function finishCampaign() {
         alert('Ocorreu um erro com o servidor!')
     });
 };
+
+/**
+ * 
+ */
+function updateDeadline() {
+    let $hash = location.hash.split('#')[1];
+
+    fetch('http://localhost:8080/v1/api/campaigns/deadline/' + $hash, {
+        method: 'PUT',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
+    .then(response => {
+        if(response.status == 404) {
+            window.location.href = 'campaigns.html';
+        } else if(response.status == 401) {
+            alert('Você não está autorizado a fazer isso!')
+        } else if(response.status == 403) {
+            window.location.href = 'index.html';
+            logout();
+            alert('Faça login novamente!');
+        } else if(response.status == 500) {
+            window.location.href = 'index.html';
+            logout();
+            alert('Faça login novamente!')
+        }
+        response.json().then(() => {
+            alert('Campanha encerrada com sucesso!');
+            window.location.reload(true);
+        });
+    })
+    .catch(() => {
+        window.location.href = 'index.html';
+        alert('Ocorreu um erro com o servidor!')
+    });
+}
