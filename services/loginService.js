@@ -53,7 +53,7 @@ function submitLogin() {
         alert('Usuário logado com sucesso!');
 
         localStorage.setItem('token', data.token);
-        localStorage.setItem('login', $email);
+        localStorage.setItem('email', $email);
         window.location.href = 'index.html';
     })
     .catch(() => {

@@ -15,7 +15,7 @@ window.onload = () => {
     })
     .then(response => {
         if(response.status == 404) {
-            window.location.href = 'index.html';
+            window.location.href = 'campaigns.html';
         } else if(response.status == 500) {
             window.location.href = 'index.html';
             logout();
@@ -23,10 +23,13 @@ window.onload = () => {
         }
         response.json().then(data => {
             renderElements(data);
+            showWidget(data.owner);
+            console.log(data);
         });
     })
     .catch(() => {
         window.location.href = 'index.html';
+        alert('Ocorreu um erro com o servidor!')
     });
 };
 
@@ -62,7 +65,6 @@ function getCurrentValue(donations) {
     for (let i = 0; i < donations.length; i++) {
         sum += donations[i].value;
     };
-
     return sum;
 }
 
@@ -73,11 +75,18 @@ function getCampaignPercent(donations, goal) {
     for (let i = 0; i < donations.length; i++) {
         sum += donations[i].value;
     };
-
     percent = (sum * 100) / goal;
 
     return parseFloat(percent.toFixed(2)) + '%';
 };
+
+function showWidget(user) {
+    let $manage_btn = document.querySelector('#manage-container');
+
+    if (user.email == localStorage.getItem('email')) {
+        $manage_btn.style.display = 'block';
+    }
+}
 
 /**
  * Desloga o usuário do sistema.

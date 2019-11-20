@@ -59,10 +59,10 @@
         </div>
     </section>
 
-    <!-- CAMPAIGN DATA -->
+    <!-- DADOS DA CAMPANHA -->
     <section id="container-list">
         <div id="owner-div">
-            <a href="">
+            <a>
                 <img src="../styles/img/profile.png" alt="profile logo">
                 <p id="owner-fname"></p>
                 <p id="owner-lname"></p>
@@ -89,11 +89,34 @@
     </div>
 
     <!-- GERENCIAMENTO DE CAMPANHA -->
-    <section id="manage-container">
-        <a>
+    <div id="manage-container">
+        <a id="manage-btn">
             <span>Gerencie sua campanha</span>
             <img src="../styles/img/edit.png" height="25px" alt="">
         </a>
+    </div>
+
+    <!-- MODAL DE EDIÇÃO -->
+    <section id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn">&times;</span>
+            <p>Hello... I'm a model</p>
+        </div>
+    </section>
+
+    <!-- INTERAÇÃO -->
+    <section id="react-container">
+        <div id="like-div">
+
+        </div>
+
+        <div id="add-comment-div">
+
+        </div>
+
+        <div id="comments-div">
+
+        </div>
     </section>
 
     <!-- RODAPÉ -->
@@ -106,10 +129,32 @@
             </div>
         </div>
     </footer>
-
     <script>
-        hideContent();
+        let $modal = document.querySelector('#edit-modal');
+        let $open_btn = document.querySelector('#manage-btn');
+        let $close_btn = document.querySelector('#closeBtn')
 
+        $open_btn.addEventListener('click', openModal);
+
+        $close_btn.addEventListener('click', closeModal);
+
+        window.addEventListener('click', clickOutside);
+
+        function openModal() {
+            $modal.style.display = 'block';
+        };
+
+        function closeModal() {
+            $modal.style.display = 'none';
+        };
+
+        function clickOutside(e) {
+            if (e.target == $modal) {
+                $modal.style.display = 'none';
+            };
+        };
+
+        hideContent();
         /**
          * Exclui os botões de criar conta e login e cria o de perfil quando o usuário está logado
          */
@@ -123,11 +168,13 @@
                 $login.style.display = "none";
                 $register.style.display = "none";
                 $profile.style.display = "block";
-            } else {
+            }  
+            else {
                 $profile.style.display = "none";
                 $login.style.display = "block"
                 $register.style.display = "block"
-            }
+            };
+
         };
     </script>
 </body>

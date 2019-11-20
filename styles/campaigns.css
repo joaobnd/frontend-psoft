@@ -259,6 +259,7 @@ footer {
 }
 
 #owner-div a {
+    cursor: pointer;
     text-decoration: none;
     color: #FFF;
 }
@@ -316,14 +317,15 @@ footer {
 }
 
 #manage-container {
+    display: none;
     width: 900px;
     margin: 10px auto;
-    display: block;
     background-color: #EEE;
     text-align: center;
     height: 38px;
     border: solid 1px #4a8fda;
 }
+
 
 #manage-container a{
     font-weight: bold;
@@ -338,4 +340,43 @@ footer {
 #manage-container a:hover{
     background-color: #1a4472;
     color: #E8E8E8;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #F8F8F8;
+    margin: 10% auto;
+    padding: 20px;
+    width: 65%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    animation-name: modalopen;
+    animation-duration: 0.5s;
+}
+
+#closeBtn {
+    color: #888;
+    float: right;
+    font-size: 30px;
+}
+
+#closeBtn:hover, #closeBtn:focus {
+    color: #131415;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@keyframes modalopen {
+    from {opacity: 0}
+    to {opacity: 1}
 }
