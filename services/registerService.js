@@ -69,6 +69,7 @@ function submitCampaign() {
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             } 
             else {
+                msg = 'Ocorreu um erro com o servidor.'
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             }
         }

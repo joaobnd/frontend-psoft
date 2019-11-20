@@ -3,7 +3,7 @@ window.onload = () => {
 
     if ($hash == '' || $hash == null) {
         window.location.href = 'index.html';
-    }
+    };
 
     fetch('http://localhost:8080/v1/api/campaigns/' + $hash, {
         method: 'GET',
@@ -33,8 +33,18 @@ window.onload = () => {
     });
 };
 
+let $finish_campaign_btn = document.querySelector('#finish-campaign-btn');
+
+$finish_campaign_btn.addEventListener('click' ,() => {
+    let r = confirm("Tem certeza que deseja finalizar a campanha?");
+
+    if (r == true) {
+        finishCampaign();
+    };
+});
+
 /**
- * Cria os elementos graficos que representam a campanha
+ * Renderiza as informações da campanha nos objetos HTML.
  */
 function renderElements(data) {
     let $title = document.querySelector('#campaign-title');
@@ -46,6 +56,7 @@ function renderElements(data) {
     let $description = document.querySelector('#campaign-description');
     let $percent = document.querySelector('#percent-value');
     let $current_value = document.querySelector('#current-value');
+    let $modal_bottom = document.querySelector('.modal-footer');
 
     $title.innerHTML = data.name;
     $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
@@ -57,8 +68,17 @@ function renderElements(data) {
     let str = data.deadLine;
     $deadline.innerHTML = str.substring(8) + '/' + str.substring(5, 7) + '/' + str.substring(0, 4);
     $percent.innerHTML = getCampaignPercent(data.donations, data.goal);
+
+    if (data.status == 'Encerrada') {
+        $modal_bottom.style.display = 'none';
+        $status.style.backgroundColor = '#b62d2d';
+        $status.style.color = '#F8F8F8';
+    }
 };
 
+/**
+ * Retorna o valor total arrecadado da campanha.
+ */
 function getCurrentValue(donations) {
     let sum = 0;
 
@@ -68,6 +88,9 @@ function getCurrentValue(donations) {
     return sum;
 }
 
+/**
+ * Retorna o percentual que a campanha possui em relação a meta de arrecadação.
+ */
 function getCampaignPercent(donations, goal) {
     let sum = 0;
     let percent;
@@ -80,6 +103,9 @@ function getCampaignPercent(donations, goal) {
     return parseFloat(percent.toFixed(2)) + '%';
 };
 
+/**
+ * Mostra o widget de alteração das informações da campanha caso o usuário logado seja o dono dela.
+ */
 function showWidget(user) {
     let $manage_btn = document.querySelector('#manage-container');
 
@@ -95,4 +121,43 @@ function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     window.location.href = "index.html";
+};
+
+/**
+ * 
+ */
+function finishCampaign() {
+    let $hash = location.hash.split('#')[1];
+
+    fetch('http://localhost:8080/v1/api/campaigns/' + $hash, {
+        method: 'PUT',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
+    .then(response => {
+        if(response.status == 404) {
+            window.location.href = 'campaigns.html';
+        } else if(response.status == 401) {
+            alert('Você não está autorizado a fazer isso!')
+        } else if(response.status == 403) {
+            window.location.href = 'index.html';
+            logout();
+            alert('Faça login novamente!');
+        } else if(response.status == 500) {
+            window.location.href = 'index.html';
+            logout();
+            alert('Faça login novamente!')
+        }
+        response.json().then(data => {
+            alert('Campanha encerrada com sucesso!');
+            window.location.reload(true);
+        });
+    })
+    .catch(() => {
+        window.location.href = 'index.html';
+        alert('Ocorreu um erro com o servidor!')
+    });
 };
