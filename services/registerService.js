@@ -35,7 +35,6 @@ function submitCampaign() {
     let userToken = localStorage.getItem('token');
 
     let data = {
-        id: 1651,
         name: $name,
         urlId: generateUrl(),
         description: $description,
@@ -57,11 +56,13 @@ function submitCampaign() {
         if(!response.ok) {
             let msg = '';
             if(response.status == 403) {
-                msg = 'Por favor, faça login para poder prosseguir!';
+                msg = 'Faça login novamente';
+                logout();
                 window.location.href = 'login.html';
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             } else if(response.status == 401) {
-                msg = 'Você não tem permissão para realizar o cadastro!';
+                msg = 'Faça login novamente';
+                logout();
                 window.location.href = 'login.html';
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             } else if(response.status == 400) {
@@ -69,15 +70,15 @@ function submitCampaign() {
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             } 
             else {
-                msg = 'Ocorreu um erro com o servidor.'
+                msg = 'Ocorreu um erro';
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
-            }
-        }
-        return response.text();
-    })
-    .then(() => {
-        alert('Campanha cadastrada com sucesso!');
-        location.href = 'campaigns.html'
+            };
+        };
+        return response.json()
+        .then(data => {
+            alert('Campanha cadastrada com sucesso!');
+            location.href = 'campaign.html#' + data.urlId;
+        });
     })
     .catch(error => {
         alert(error.message);
@@ -93,6 +94,15 @@ function generateUrl() {
                               .replace(/\-\-+/g, ' ')
                               .replace(/(^-+|-+$)/, '');
     return url;
+};
+
+/**
+ * Desloga o usuário do sistema.
+ */
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
 };
 
 /**

@@ -36,32 +36,41 @@ window.onload = () => {
     });
 };
 
+let $update_description_btn = document.querySelector('#update-description-btn');
+let $update_goal_btn = document.querySelector('#update-goal-btn');
+let $update_deadline_btn = document.querySelector('#update-deadline-btn');
 let $finish_campaign_btn = document.querySelector('#finish-campaign-btn');
-let $update_btn = document.querySelector('#update-data-btn');
 
 /**
- * Chama as funções para alterar as informações inseridas
+ * Chama a função de alterar a descrição ao clicar no botão.
  */
-$update_btn.addEventListener('click', () => {
-    let $update_description = document.querySelector('#campaign-update-description').innerHTML;
-    let $update_goal = document.querySelector('#campaign-update-goal').value;
-    let $update_day = document.querySelector('#campaign-deadline-day').value;
-    let $update_month = document.querySelector('#campaign-deadline-month').value;
-    let $update_year = document.querySelector('#campaign-deadline-year').value;
-    let newDate = $update_year + '-' + getMonthNumber($update_month) + '-' + $update_day;
-
-    let r = confirm("Tem certeza que deseja alterar os dados?");
+$update_description_btn.addEventListener('click', () => {
+    let r = confirm("Tem certeza que deseja alterar a descrição?");
 
     if (r == true) {
-        if ($update_description != localData.description) {
-            updateDescription($update_description);
-        };
-        if ($update_goal != localData.goal) {
-            updateGoal($update_goal);
-        };
-        if (newDate != localData.deadLine) {
-            updateDeadline(newDate);
-        };
+        updateDescription();
+    };
+});
+
+/**
+ * Chama a função de alterar a meta de arrecadação ao clicar no botão.
+ */
+$update_goal_btn.addEventListener('click', () => {
+    let r = confirm("Tem certeza que deseja alterar a meta?");
+
+    if (r == true) {
+        updateGoal();
+    };
+});
+
+/**
+ * Chama a função de alterar a deadline ao clicar no botão.
+ */
+$update_deadline_btn.addEventListener('click', () => {
+    let r = confirm("Tem certeza que deseja alterar a deadline?");
+
+    if (r == true) {
+        updateDeadline();
     };
 });
 
@@ -119,71 +128,79 @@ function renderElements(data) {
 };
 
 /**
- * Retorna o valor total arrecadado da campanha.
- */
-function getCurrentValue(donations) {
-    let sum = 0;
-
-    for (let i = 0; i < donations.length; i++) {
-        sum += donations[i].value;
-    };
-    return sum;
-}
-
-/**
- * Retorna o percentual que a campanha possui em relação a meta de arrecadação.
- */
-function getCampaignPercent(donations, goal) {
-    let sum = 0;
-    let percent;
-
-    for (let i = 0; i < donations.length; i++) {
-        sum += donations[i].value;
-    };
-    percent = (sum * 100) / goal;
-
-    return parseFloat(percent.toFixed(2)) + '%';
-};
-
-/**
- * Mostra o widget de alteração das informações da campanha caso o usuário logado seja o dono dela e se a campanha não está encerrada.
- */
-function showWidget(data) {
-    let $manage_btn = document.querySelector('#manage-container');
-
-    if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada') {
-        $manage_btn.style.display = 'block';
-    };
-};
-
-/**
- * Desloga o usuário do sistema.
- */
-function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
-    window.location.href = "index.html";
-};
-
-/**
  * Realiza uma requisição para alterar a descrição da campanha
  */
-function updateDescription(newDescription) {
-    
+function updateDescription() {
+    let $update_description = document.querySelector('#campaign-update-description').innerHTML;
+    alert('DESCRIPTION - OK')
 };
 
 /**
  * Realiza uma requisição para alterar a meta de arrecadação da campanha
  */
-function updateGoal(newGoal) {
-    
+function updateGoal() {
+    let $hash = location.hash.split('#')[1];
+    let $update_goal = document.querySelector('#campaign-update-goal').value;
+
+    fetch('http://localhost:8080/v1/api/campaigns/goal/' + $hash, {
+        method: 'PUT',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        body: JSON.stringify($update_goal)
+    })
+    .then(response => {
+        if(!response.ok) {
+            let msg = '';
+
+            if(response.status == 403) {
+                window.location.href = 'index.html';
+                logout();
+                msg = 'Faça login novamente!';
+                throw new Error('Não foi possível concluir: ' + msg);
+            } else if(response.status == 401) {
+                window.location.href = 'index.html';
+                logout();
+                msg = 'Faça login novamente!';
+                throw new Error('Não foi possível concluir: ' + msg);
+            }  else {
+                msg = 'Ocorreu um erro com o servidor.'
+                throw new Error('Não foi possível concluir: ' + msg);
+            };
+        };
+
+        if(response.status == 400) {
+            throw new Error('Não foi possível concluir: Dado inconsistente');
+        };
+
+        if(response.status == 500) {
+            window.location.href = 'index.html';
+            alert('Faça login novamente!');
+            logout();
+            throw new Error('Faça login novamente!');
+        };
+        return response.text();
+    })
+    .then(() => {
+        alert('Meta alterada com sucesso!');
+        document.location.reload(true);
+    })
+    .catch(error => {
+        alert(error.message);
+    });
 };
 
 /**
  * Realiza uma requisição para alterar a deadline da campanha
  */
-function updateDeadline(newDate) {
+function updateDeadline() {
     let $hash = location.hash.split('#')[1];
+    let $update_day = document.querySelector('#campaign-deadline-day').value;
+    let $update_month = document.querySelector('#campaign-deadline-month').value;
+    let $update_year = document.querySelector('#campaign-deadline-year').value;
+    let newDate = $update_year + '-' + getMonthNumber($update_month) + '-' + $update_day;
 
     fetch('http://localhost:8080/v1/api/campaigns/deadline/' + $hash, {
         method: 'PUT',
@@ -201,34 +218,32 @@ function updateDeadline(newDate) {
             if(response.status == 403) {
                 window.location.href = 'index.html';
                 logout();
-                alert('Faça login novamente!');
+                msg = 'Faça login novamente!';
                 throw new Error('Não foi possível concluir: ' + msg);
             } else if(response.status == 401) {
                 window.location.href = 'index.html';
                 logout();
-                alert('Faça login novamente!');
+                msg = 'Faça login novamente!';
                 throw new Error('Não foi possível concluir: ' + msg);
             }  else {
                 msg = 'Ocorreu um erro com o servidor.'
-                alert('Não foi possível concluir: ' + msg);
                 throw new Error('Não foi possível concluir: ' + msg);
             };
         };
 
         if(response.status == 400) {
-            alert('Não foi possível concluir: ' + 'Dado inconsistente');
-            throw new Error('Não foi possível concluir: ' + 'Dado inconsistente');
-        }
+            throw new Error('Não foi possível concluir: Dado inconsistente');
+        };
 
         if(response.status == 500) {
             window.location.href = 'index.html';
             alert('Faça login novamente!');
             logout();
             throw new Error('Faça login novamente!');
-        }
+        };
         return response.text();
     })
-    .then(data => {
+    .then(() => {
         alert('Deadline alterada com sucesso!');
         document.location.reload(true);
     })
@@ -276,6 +291,53 @@ function finishCampaign() {
         alert('Ocorreu um erro com o servidor!');
     });
 };
+
+/**
+ * Desloga o usuário do sistema.
+ */
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
+};
+
+/**
+ * Mostra o widget de alteração das informações da campanha caso o usuário logado seja o dono dela e se a campanha não está encerrada.
+ */
+function showWidget(data) {
+    let $manage_btn = document.querySelector('#manage-container');
+
+    if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada') {
+        $manage_btn.style.display = 'block';
+    };
+};
+
+/**
+ * Retorna o percentual que a campanha possui em relação a meta de arrecadação.
+ */
+function getCampaignPercent(donations, goal) {
+    let sum = 0;
+    let percent;
+
+    for (let i = 0; i < donations.length; i++) {
+        sum += donations[i].value;
+    };
+    percent = (sum * 100) / goal;
+
+    return parseFloat(percent.toFixed(2)) + '%';
+};
+
+/**
+ * Retorna o valor total arrecadado da campanha.
+ */
+function getCurrentValue(donations) {
+    let sum = 0;
+
+    for (let i = 0; i < donations.length; i++) {
+        sum += donations[i].value;
+    };
+    return sum;
+}
 
 /**
  * Retorna o nome do mês de acordo com o número.

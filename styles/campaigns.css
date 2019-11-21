@@ -405,7 +405,7 @@ footer {
 }
 
 .modal-body input[type="text"], textarea, input[type="number"] {
-    padding: 5px;
+    padding: 2px;
     width: 400px;
     margin-bottom: 15px;
 }
@@ -426,12 +426,13 @@ footer {
 .modal-body button {
     display: block;
     background-color: #E8E8E8;
-    color: #4a4a4a;
+    color: #555;
     font-weight: bold;
     border: solid 1px #AAA;
-    padding: 6px 30px;
-    font-size: 16px;
-    margin-bottom: 30px;
+    padding: 4px 30px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 200px;
 }
 
 
@@ -447,9 +448,10 @@ footer {
     color: #b62d2d;
     font-weight: bold;
     border: solid 1px #AAA;
-    padding: 6px 8px;
+    padding: 4px 8px;
     font-size: 16px;
     margin: 10px 20%;
+    width: 200px;
 }
 
 
