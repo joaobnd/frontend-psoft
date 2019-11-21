@@ -81,7 +81,7 @@ function submitCampaign() {
     })
     .catch(error => {
         alert(error.message);
-    })
+    });
 };
 
 function generateUrl() {

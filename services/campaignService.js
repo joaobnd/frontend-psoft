@@ -21,7 +21,7 @@ window.onload = () => {
         } else if(response.status == 500) {
             window.location.href = 'index.html';
             logout();
-            alert('Faça login novamente!')
+            alert('Faça login novamente!');
         }
         response.json().then(data => {
             renderElements(data);
@@ -169,80 +169,14 @@ function logout() {
  * Realiza uma requisição para alterar a descrição da campanha
  */
 function updateDescription(newDescription) {
-    let $hash = location.hash.split('#')[1];
     
-    fetch('http://localhost:8080/v1/api/campaigns/description/' + $hash, {
-        method: 'PUT',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json; charset=utf-8',
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        body: newDescription
-    })
-    .then(response => {
-        if(response.status == 404) {
-            window.location.href = 'campaigns.html';
-        } else if(response.status == 401) {
-            alert('Você não está autorizado a fazer isso!');
-        } else if(response.status == 403) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        } else if(response.status == 500) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        }
-        response.json().then(() => {
-            window.location.reload(true);
-        });
-    })
-    .catch(() => {
-        window.location.href = 'index.html';
-        console.log('updateDescription error');
-        alert('Ocorreu um erro com o servidor!');
-    });
 };
 
 /**
  * Realiza uma requisição para alterar a meta de arrecadação da campanha
  */
 function updateGoal(newGoal) {
-    let $hash = location.hash.split('#')[1];
-
-    fetch('http://localhost:8080/v1/api/campaigns/goal/' + $hash, {
-        method: 'PUT',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json; charset=utf-8',
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        body: newGoal
-    })
-    .then(response => {
-        if(response.status == 404) {
-            window.location.href = 'campaigns.html';
-        } else if(response.status == 401) {
-            alert('Você não está autorizado a fazer isso!');
-        } else if(response.status == 403) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        } else if(response.status == 500) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        }
-        response.json().then(() => {
-            window.location.reload(true);
-        });
-    })
-    .catch(() => {
-        window.location.href = 'index.html';
-        console.log('updateGoal error');
-        alert('Ocorreu um erro com o servidor!');
-    });
+    
 };
 
 /**
@@ -250,7 +184,7 @@ function updateGoal(newGoal) {
  */
 function updateDeadline(newDate) {
     let $hash = location.hash.split('#')[1];
-    
+
     fetch('http://localhost:8080/v1/api/campaigns/deadline/' + $hash, {
         method: 'PUT',
         headers: {
@@ -261,29 +195,45 @@ function updateDeadline(newDate) {
         body: JSON.stringify(newDate)
     })
     .then(response => {
-        if(response.status == 404) {
-            window.location.href = 'campaigns.html';
-        } else if(response.status == 401) {
-            alert('Você não está autorizado a fazer isso!');
-        } else if(response.status == 400) {
-            alert('A data de encerramento deve ser no futuro');
-        } else if(response.status == 403) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        } else if(response.status == 500) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
+        if(!response.ok) {
+            let msg = '';
+
+            if(response.status == 403) {
+                window.location.href = 'index.html';
+                logout();
+                alert('Faça login novamente!');
+                throw new Error('Não foi possível concluir: ' + msg);
+            } else if(response.status == 401) {
+                window.location.href = 'index.html';
+                logout();
+                alert('Faça login novamente!');
+                throw new Error('Não foi possível concluir: ' + msg);
+            }  else {
+                msg = 'Ocorreu um erro com o servidor.'
+                alert('Não foi possível concluir: ' + msg);
+                throw new Error('Não foi possível concluir: ' + msg);
+            };
+        };
+
+        if(response.status == 400) {
+            alert('Não foi possível concluir: ' + 'Dado inconsistente');
+            throw new Error('Não foi possível concluir: ' + 'Dado inconsistente');
         }
-        response.json().then(() => {
-            window.location.reload(true);
-        });
+
+        if(response.status == 500) {
+            window.location.href = 'index.html';
+            alert('Faça login novamente!');
+            logout();
+            throw new Error('Faça login novamente!');
+        }
+        return response.text();
     })
-    .catch(() => {
-        window.location.href = 'index.html';
-        console.log('updateDeadline error');
-        alert('Ocorreu um erro com o servidor!');
+    .then(data => {
+        alert('Deadline alterada com sucesso!');
+        document.location.reload(true);
+    })
+    .catch(error => {
+        alert(error.message);
     });
 };
 
