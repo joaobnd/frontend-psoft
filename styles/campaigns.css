@@ -460,3 +460,22 @@ footer {
     background-color: #b62d2d;
     color: #E8E8E8;
 }
+
+#react-container {
+    margin: 25px 20.3%;
+    text-align: center;
+    background-color: #E8E8E8;
+    padding: 20px;
+    border: solid 1px #4a8fda;
+}
+
+#comment-form {
+    background-color: #4a8fda;
+    padding: 15px;
+    color: #E8E8E8;
+    font-size: 18px;
+    font-weight: bold;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
