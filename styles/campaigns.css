@@ -462,20 +462,138 @@ footer {
 }
 
 #react-container {
-    margin: 25px 20.3%;
+    margin: 25px auto;
     text-align: center;
-    background-color: #E8E8E8;
-    padding: 20px;
-    border: solid 1px #4a8fda;
+    padding: 0px;
+    
 }
 
 #comment-form {
-    background-color: #4a8fda;
     padding: 15px;
-    color: #E8E8E8;
-    font-size: 18px;
+    color: #6E6E6E;
+    font-size: 20px;
     font-weight: bold;
-    width: 50%;
+    background-color: #E8E8E8;
+    width: 870px;
     margin: 0 auto;
-    display: block;
+    border: solid 1px #4a8fda;
 }
+
+#comment-form textarea {
+    margin: 10px auto;
+    display: block;
+    width: 500px;
+}
+
+#comment-form button {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 15px;
+    background-color: #133d6e;
+    border: solid 1px #E8E8E8;
+    border-radius: 8px;
+    color: #E8E8E8;
+}
+
+#comment-form button:hover {
+    background-color: #4a8fda;
+    color: #E8E8E8;
+    border: solid 1px #E8E8E8;
+}
+
+#comments-div {
+    padding: 15px;
+    color: #555;
+    font-size: 18px;
+    background-color: #E8E8E8;
+    width: 870px;
+    margin: 20px auto;
+    border: solid 1px #4a8fda;
+    text-align: left;
+}
+
+.reply-btn{
+    cursor: pointer;
+    display: block;
+    margin: 0px auto 0px 85px;
+    padding: 6px 12px;
+    font-size: 15px;
+    background-color: #133d6e;
+    border: solid 1px #E8E8E8;
+    border-radius: 8px;
+    color: #E8E8E8;
+}
+
+.reply-btn:hover {
+    background-color: #4a8fda;
+    color: #E8E8E8;
+    border: solid 1px #E8E8E8;
+}
+
+.replies-btn {
+    text-align: center;
+    font-size: 13px;
+    background-color: #133d6e;
+    border: solid 1px #E8E8E8;
+    color: #E8E8E8;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 0px auto;
+    padding: 2px 6px;
+    width: 90px;
+}
+
+.replies-btn:hover {
+    background-color: #4a8fda;
+    color: #E8E8E8;
+    border: solid 1px #E8E8E8;
+}
+
+.comment-unit {
+    margin: 10px 10%;
+    padding: 10px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.comment-username {
+    cursor: pointer;
+    color: #133d6e;
+    font-weight: bold;
+    width: 30%;
+}
+
+.comment-time {
+    font-size: 14px;
+}
+
+.comment-area {
+    padding: 8px 2px;
+    font-size: 15px;
+}
+
+.comment-reply {
+    margin: 10px 10% 10px 15%;
+    padding: 10px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.reply-username {
+    cursor: pointer;
+    color: #133d6e;
+    font-weight: bold;
+    width: 30%;
+    font-size: 14px;
+}
+
+.reply-time {
+    font-size: 12px;
+}
+
+.reply-area {
+    padding: 8px 2px;
+    font-size: 15px;
+}
+

@@ -41,7 +41,7 @@ function registerUser() {
 
     loadElements();
     
-    fetch('http://localhost:8080/v1/api/users', {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/users', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',

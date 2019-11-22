@@ -7,7 +7,7 @@ window.onload = () => {
         window.location.href = 'index.html';
     };
 
-    fetch('http://localhost:8080/v1/api/campaigns/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash, {
         method: 'GET',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -75,7 +75,16 @@ function renderElements(data) {
     if (data.status == 'Encerrada') {
         $status.style.backgroundColor = '#b62d2d';
         $status.style.color = '#F8F8F8';
-    };
+    } else if (data.status == 'Concluida') {
+        $status.style.backgroundColor = '#1daa30';
+        $status.style.color = '#F8F8F8';
+    }
+
+    let $comment_area = document.querySelector('#comments-div');
+
+    data.comments.array.forEach(element => {
+        $comment_area.appendChild('')
+    });
 };
 
 /**
@@ -93,7 +102,7 @@ function logout() {
 function showWidget(data) {
     let $manage_btn = document.querySelector('#manage-container');
 
-    if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada') {
+    if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada' && data.status != 'Vencida') {
         $manage_btn.style.display = 'block';
     };
 };

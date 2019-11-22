@@ -14,7 +14,7 @@ $submit_button.addEventListener('click', () => {
 function sendRecoveryEmail(email) {
     loadElements();
 
-    fetch('http://localhost:8080/v1/api/users/password', {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/users/password', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',

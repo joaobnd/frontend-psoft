@@ -43,7 +43,7 @@ function submitCampaign() {
         goal: $goal
     };
 
-    fetch('http://localhost:8080/v1/api/campaigns', {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',

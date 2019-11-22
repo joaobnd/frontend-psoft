@@ -31,7 +31,7 @@ function checkToken(password) {
 function changePassword(token, newPassword) {
     loadElements();
     
-    let link = 'http://localhost:8080/v1/api/users/password?token=' + token;
+    let link = 'https://api-ajudepsoft.herokuapp.com/api/users/password?token=' + token;
 
     fetch(link, {
         method: 'PUT',

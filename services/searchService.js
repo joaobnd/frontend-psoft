@@ -14,7 +14,7 @@ function searchCampaign() {
     let $overdue = document.querySelector('#overdue-option');
     let $completed = document.querySelector('#completed-option');
     
-    fetch('http://localhost:8080/v1/api/campaigns', {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns', {
         method: 'GET',
         headers: {
             'Access-Control-Allow-Origin': '*',

@@ -34,7 +34,7 @@ function submitLogin() {
 
     loadElements();
 
-    fetch('http://localhost:8080/v1/api/login', {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/login', {
         method: 'POST',
         headers: {
             'Access-Control-Allow-Origin': '*',

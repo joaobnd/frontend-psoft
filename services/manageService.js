@@ -62,7 +62,7 @@ function updateGoal() {
     let $hash = location.hash.split('#')[1];
     let $update_goal = document.querySelector('#campaign-update-goal').value;
 
-    fetch('http://localhost:8080/v1/api/campaigns/goal/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/goal/' + $hash, {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -122,7 +122,7 @@ function updateDeadline() {
     let $update_year = document.querySelector('#campaign-deadline-year').value;
     let newDate = $update_year + '-' + getMonthNumber($update_month) + '-' + $update_day;
 
-    fetch('http://localhost:8080/v1/api/campaigns/deadline/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/deadline/' + $hash, {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -179,7 +179,7 @@ function updateDeadline() {
 function finishCampaign() {
     let $hash = location.hash.split('#')[1];
 
-    fetch('http://localhost:8080/v1/api/campaigns/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash, {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',
