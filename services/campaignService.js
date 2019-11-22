@@ -1,4 +1,5 @@
 import renderComments from './commentService.js';
+import { renderLikes, renderDislikes } from './likeService.js';
 
 window.onload = () => {
     getCampaign();
@@ -30,6 +31,8 @@ function getCampaign() {
         response.json().then(data => {
             renderElements(data);
             renderComments(data);
+            renderLikes(data);
+            renderDislikes(data);
             showWidget(data);
             console.log(data);
         });

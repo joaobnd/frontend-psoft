@@ -463,10 +463,59 @@ footer {
 }
 
 #react-container {
-    margin: 25px auto;
+    margin: 0 auto;
     text-align: center;
     padding: 0px;
-    
+}
+
+#likes-div {
+    padding: 20px;
+    background-color: #E8E8E8;
+}
+
+#likes-div a, p {
+    display: inline;
+}
+
+#like-btn:hover{
+    cursor: pointer;
+    background-color: rgb(208, 221, 243);
+    padding: 15px 3px 1px 3px;
+    border-radius: 15px;
+}
+
+
+#like-btn-hover:hover{
+    cursor: pointer;
+    background-color: rgb(208, 221, 243);
+    padding: 15px 3px 1px 3px;
+    border-radius: 15px;
+}
+
+#likes-count {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #1a4472;
+}
+
+#dislikes-count {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #1a4472;
+}
+
+#dislike-btn:hover{
+    cursor: pointer;
+    background-color: rgb(243, 208, 208);
+    padding: 15px 3px 1px 3px;
+    border-radius: 15px;
+}
+
+#dislike-btn-hover:hover{
+    cursor: pointer;
+    background-color: rgb(208, 221, 243);
+    padding: 15px 3px 1px 3px;
+    border-radius: 15px;
 }
 
 #comment-form {
