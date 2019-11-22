@@ -1,6 +1,10 @@
-let localData;
+import renderComments from './commentService.js';
 
 window.onload = () => {
+    getCampaign();
+};
+
+function getCampaign() {
     let $hash = location.hash.split('#')[1];
 
     if ($hash == '' || $hash == null) {
@@ -25,8 +29,8 @@ window.onload = () => {
         }
         response.json().then(data => {
             renderElements(data);
+            renderComments(data);
             showWidget(data);
-            localData = data;
             console.log(data);
         });
     })
@@ -79,12 +83,6 @@ function renderElements(data) {
         $status.style.backgroundColor = '#1daa30';
         $status.style.color = '#F8F8F8';
     }
-
-    let $comment_area = document.querySelector('#comments-div');
-
-    data.comments.array.forEach(element => {
-        $comment_area.appendChild('')
-    });
 };
 
 /**
@@ -164,3 +162,5 @@ function getMonthName(month) {
         return 'Dezembro';
     };
 };
+
+export default getCampaign;

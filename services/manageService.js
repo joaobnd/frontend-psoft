@@ -1,3 +1,4 @@
+let $hash = location.hash.split('#')[1];
 let $update_description_btn = document.querySelector('#update-description-btn');
 let $update_goal_btn = document.querySelector('#update-goal-btn');
 let $update_deadline_btn = document.querySelector('#update-deadline-btn');
@@ -51,18 +52,66 @@ $finish_campaign_btn.addEventListener('click', () => {
  * Realiza uma requisição para alterar a descrição da campanha
  */
 function updateDescription() {
-    let $update_description = document.querySelector('#campaign-update-description').innerHTML;
-    alert('DESCRIPTION - OK')
+    let $update_description = document.querySelector('#campaign-update-description').value;
+
+    alert($update_description)
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/description', {
+        method: 'PUT',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        body: JSON.stringify($update_description)
+    })
+    .then(response => {
+        if(!response.ok) {
+            let msg = '';
+
+            if(response.status == 403) {
+                window.location.href = 'index.html';
+                logout();
+                msg = 'Faça login novamente!';
+                throw new Error('Não foi possível concluir: ' + msg);
+            } else if(response.status == 401) {
+                window.location.href = 'index.html';
+                logout();
+                msg = 'Faça login novamente!';
+                throw new Error('Não foi possível concluir: ' + msg);
+            }  else {
+                msg = 'Ocorreu um erro com o servidor.'
+                throw new Error('Não foi possível concluir: ' + msg);
+            };
+        };
+
+        if(response.status == 400) {
+            throw new Error('Não foi possível concluir: Dado inconsistente');
+        };
+
+        if(response.status == 500) {
+            window.location.href = 'index.html';
+            alert('Faça login novamente!');
+            logout();
+            throw new Error('Faça login novamente!');
+        };
+        return response.text();
+    })
+    .then(() => {
+        alert('Descrição alterada com sucesso!');
+        document.location.reload(true);
+    })
+    .catch(error => {
+        alert(error.message);
+    });
 };
 
 /**
  * Realiza uma requisição para alterar a meta de arrecadação da campanha
  */
 function updateGoal() {
-    let $hash = location.hash.split('#')[1];
     let $update_goal = document.querySelector('#campaign-update-goal').value;
 
-    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/goal/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash +'/goal', {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -116,13 +165,12 @@ function updateGoal() {
  * Realiza uma requisição para alterar a deadline da campanha
  */
 function updateDeadline() {
-    let $hash = location.hash.split('#')[1];
     let $update_day = document.querySelector('#campaign-deadline-day').value;
     let $update_month = document.querySelector('#campaign-deadline-month').value;
     let $update_year = document.querySelector('#campaign-deadline-year').value;
     let newDate = $update_year + '-' + getMonthNumber($update_month) + '-' + $update_day;
 
-    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/deadline/' + $hash, {
+    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash +'/deadline', {
         method: 'PUT',
         headers: {
             'Access-Control-Allow-Origin': '*',

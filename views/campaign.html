@@ -10,6 +10,7 @@
     <script src="../services/campaignService.js" type="module"></script>
     <script src="../services/manageService.js" type="module"></script>
     <script src="../services/commentService.js" type="module"></script>
+    <script src="../services/likeService.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -186,8 +187,11 @@
 
     <!-- INTERAÇÃO -->
     <section id="react-container">
-        <div id="like-div">
-
+        <div id="likes-div">
+            <a id="like-btn"><img src="../styles/img/like.png" height="30px"></a>
+            <p id="likes-count"></p>
+            <a id="dislike-btn"><img src="../styles/img/dislike.png" height="30px"></a>
+            <p id="dislikes-count"></p>
         </div>
 
         <div id="add-comment-div">
@@ -202,7 +206,7 @@
             <h2>Comentários</h2>
 
             <div class="comment">
-                <!-- <div class="comment-unit">
+                <div class="comment-unit">
                     <div class="infos-comment"></div>
                     <a class="comment-profile">
                         <p class="comment-username">Gabriel Costa</p>
@@ -211,11 +215,9 @@
                     <p class="comment-area">Comentario teste asdhashdjka hsgdajk hsghask gas hgaj shvhj dvaskjh vhsa </p>
                 </div>
 
-                <button class="reply-btn">Responder</button> -->
+                <button class="reply-btn">Responder</button>
             </div>
-            
-
-
+    
         </div>
     </section>
 

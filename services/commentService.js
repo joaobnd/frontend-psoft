@@ -1,3 +1,4 @@
+import getCampaign from './campaignService.js';
 let $hash = location.hash.split('#')[1];
 
 let $comment_btn = document.querySelector('#send-comment');
@@ -9,7 +10,6 @@ $comment_btn.addEventListener('click', () => {
 
 
 function submitComment(comment) {
-
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/'+ $hash + '/comment', {
         method: 'POST',
         headers: {
@@ -21,15 +21,22 @@ function submitComment(comment) {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error("Não foi possivel postar o comentário!")
+            throw new Error("Não foi possivel postar o comentário!");
         }
-        return response.text()
+        return response.text();
     })
     .then(() => {
-        document.location.reload(true);
+        getCampaign();
     })
-    .catch(function (error) {
+    .catch(error => {
         alert(error.message);
     });
 };
 
+function renderComments(data) {
+    let comments = data.comments;
+
+    console.log(comments);
+}
+
+export default renderComments;

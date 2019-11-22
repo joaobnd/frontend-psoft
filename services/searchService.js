@@ -5,14 +5,8 @@ $search_btn.addEventListener('click', () => {
     checkFields();
 });
 
-function searchCampaign() {
+function searchCampaign(states) {
     let $search_value = document.querySelector('#search-value').value;
-    let $states = [];
-
-    let $active = document.querySelector('#active-option');
-    let $finished = document.querySelector('#finished-option');
-    let $overdue = document.querySelector('#overdue-option');
-    let $completed = document.querySelector('#completed-option');
     
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns', {
         method: 'GET',
@@ -22,21 +16,31 @@ function searchCampaign() {
         },
         body: JSON.stringify({
             str: $search_value,
-            status: $states
+            status: states
         })
     })
     .then(response => {
-        
-    })
-    .then(data => {
-
+        if(response.status == 404) {
+            window.location.href = 'campaigns.html';
+        } else if(response.status == 500) {
+            window.location.href = 'index.html';
+            logout();
+            alert('Faça login novamente!');
+        }
+        response.json().then(data => {
+            console.log(data);
+        });
     })
     .catch(error => {
-
+        alert('Ocorreu um erro com o servidor!');
+        window.location.href = 'index.html';
     });
 };
 
 function checkFields() {
+    event.preventDefault();
+    let states = [];
+
     let $active = document.querySelector('#active-option');
     let $finished = document.querySelector('#finished-option');
     let $overdue = document.querySelector('#overdue-option');
@@ -46,6 +50,18 @@ function checkFields() {
         event.preventDefault();
         alert('Selecione pelo menos uma opção de filtragem')
     } else {
-        searchCampaign();
+        if ($active.checked) {
+            states.push('Ativa');
+        }
+        if ($finished.checked) {
+            states.push('Encerrada');
+        }
+        if ($overdue.checked) {
+            states.push('Vencida');
+        }
+        if ($completed.checked) {
+            states.push('Concluida');
+        }
+        searchCampaign(states);
     }
 };
