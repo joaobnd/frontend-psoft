@@ -62,7 +62,7 @@ function updateDescription() {
             'Content-Type': 'application/json; charset=utf-8',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        body: JSON.stringify($update_description)
+        body: $update_description
     })
     .then(response => {
         if(!response.ok) {

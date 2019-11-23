@@ -38,8 +38,9 @@ function getCampaign() {
         });
     })
     .catch(() => {
-        window.location.href = 'index.html';
         alert('Ocorreu um erro com o servidor!');
+        logout();
+        window.location.href = 'index.html';
     });
 };
 

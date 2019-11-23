@@ -77,7 +77,9 @@ function addLike() {
         });
     })
     .catch(() => {
-        alert('Ocorreu um erro com o servidor!');
+        alert('Ocorreu um erro com o servidor! Faça login novamente!');
+        logout();
+        window.location.href = 'index.html';
     })
 }
 
@@ -99,8 +101,10 @@ function addDislike() {
         });
     })
     .catch(() => {
-        alert('Ocorreu um erro com o servidor!');
+        alert('Ocorreu um erro com o servidor! Faça login novamente!');
+        logout();
+        window.location.href = 'index.html';
     })
 }
 
-export  { renderLikes, renderDislikes };
+export { renderLikes, renderDislikes };
