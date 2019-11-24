@@ -44,7 +44,6 @@ function submitLogin() {
     })
     .then(response => {
         if(!response.ok) {
-            alert('Email ou senha incorretos');
             throw new Error('Email ou senha incorretos');
         }
         return response.json();
@@ -56,8 +55,8 @@ function submitLogin() {
         localStorage.setItem('email', $email);
         window.location.href = 'index.html';
     })
-    .catch(() => {
-        alert("Ocorreu um erro com o servidor, tente novamente mais tarde");
+    .catch(error => {
+        alert(error.message);
         window.location.href = 'login.html';
     });
 };

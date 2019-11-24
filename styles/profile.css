@@ -19,6 +19,14 @@ h2 {
     padding-top: 10px;
 }
 
+h3{
+    padding: 20px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 25px;
+    color: #6e6e6e;
+}
+
 .main-header {
     position: inherit;
     padding-top: 20px;
@@ -110,7 +118,7 @@ h2 {
 }
 
 #my-data-section {
-    margin: 2% 15%;
+    margin: 2% 20%;
     padding-top: 30px 10px;
     background-color: #FEFEFE;
     border-radius: 3px;
@@ -141,24 +149,57 @@ h2 {
     box-shadow: 0px -1px 3px #999;
 }
 
-h3{
-    padding: 20px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 25px;
-    color: #6e6e6e;
-}
-
-#my-campaigns-section {
-    margin: 2% 15%;
+#new-password-section {
+    margin: 2% 20%;
     padding-top: 30px 10px;
     background-color: #FEFEFE;
     border-radius: 3px;
     box-shadow: 0px -1px 3px #DDD;
 }
 
+#new-password-div {
+    padding: 1% 5%;
+    text-align: left;
+}
+
+.submit-form {
+    margin: 20px 0;
+    width: 300px;
+}
+
+.submit-form .form-group {
+    padding-bottom: 15px;
+}
+
+.submit-form label {
+    font-size: 18px;
+    color: #777;
+    font-weight: bold;
+}
+
+.submit-form input {
+    width: 100%;
+    margin: 10px 0px 15px 0px;
+    padding: 5px 5px 5px 4px;
+}
+
+.submit-form button {
+    cursor: pointer;
+    background-color: #4a8fda;
+    color: #F8F8F8;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.submit-form button:hover {
+    background-color: #3A7ECA;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
 footer {
-    position: absolute;
+    position: fixed;
     bottom:0;
     width:100%;
     padding: 2px 0;
