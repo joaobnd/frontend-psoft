@@ -107,4 +107,13 @@ function addDislike() {
     })
 }
 
+/**
+ * Desloga o usuário do sistema.
+ */
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
+};
+
 export { renderLikes, renderDislikes };
