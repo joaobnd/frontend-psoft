@@ -1,3 +1,7 @@
+if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
+    window.location.href = "login.html";
+};
+
 let $logoutButton = document.querySelector("#logout-btn");
 
 $logoutButton.addEventListener('click', () => {

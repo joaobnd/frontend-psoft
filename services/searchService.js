@@ -1,3 +1,7 @@
+if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
+    window.location.href = "login.html";
+};
+
 const $search_btn = document.querySelector('#search-btn');
 let $campaign_filter = document.querySelector('#campaign-filter');
 

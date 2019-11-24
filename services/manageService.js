@@ -54,7 +54,6 @@ $finish_campaign_btn.addEventListener('click', () => {
 function updateDescription() {
     let $update_description = document.querySelector('#campaign-update-description').value;
 
-    alert($update_description)
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/description', {
         method: 'PUT',
         headers: {
@@ -66,43 +65,30 @@ function updateDescription() {
     })
     .then(response => {
         if(!response.ok) {
-            let msg = '';
-
             if(response.status == 403) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
             } else if(response.status == 401) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
-            }  else {
-                msg = 'Ocorreu um erro com o servidor.'
-                throw new Error('Não foi possível concluir: ' + msg);
-            };
-        };
-
-        if(response.status == 400) {
-            throw new Error('Não foi possível concluir: Dado inconsistente');
-        };
-
-        if(response.status == 500) {
-            window.location.href = 'index.html';
-            alert('Faça login novamente!');
-            logout();
-            throw new Error('Faça login novamente!');
-        };
-        return response.text();
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else if(response.status == 400) {
+                throw new Error('Não foi possível concluir: Dado inconsistente');
+            } else if(response.status == 500) {
+                logout();
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else {
+                throw new Error('Tente novamente');
+            }
+        } else {
+            response.json().then(data => {
+                alert('Descrição alterada com sucesso!');
+                document.location.reload(true);
+            });
+        }
     })
-    .then(() => {
-        alert('Descrição alterada com sucesso!');
-        document.location.reload(true);
-    })
-    .catch(error => {
-        alert(error.message);
-    });
 };
 
 /**
@@ -122,43 +108,30 @@ function updateGoal() {
     })
     .then(response => {
         if(!response.ok) {
-            let msg = '';
-
             if(response.status == 403) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
             } else if(response.status == 401) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
-            }  else {
-                msg = 'Ocorreu um erro com o servidor.'
-                throw new Error('Não foi possível concluir: ' + msg);
-            };
-        };
-
-        if(response.status == 400) {
-            throw new Error('Não foi possível concluir: Dado inconsistente');
-        };
-
-        if(response.status == 500) {
-            window.location.href = 'index.html';
-            alert('Faça login novamente!');
-            logout();
-            throw new Error('Faça login novamente!');
-        };
-        return response.text();
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else if(response.status == 400) {
+                throw new Error('Não foi possível concluir: Dado inconsistente');
+            } else if(response.status == 500) {
+                logout();
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else {
+                throw new Error('Tente novamente');
+            }
+        } else {
+            response.json().then(data => {
+                alert('Meta alterada com sucesso!');
+                document.location.reload(true);
+            });
+        }
     })
-    .then(() => {
-        alert('Meta alterada com sucesso!');
-        document.location.reload(true);
-    })
-    .catch(error => {
-        alert(error.message);
-    });
 };
 
 /**
@@ -181,40 +154,29 @@ function updateDeadline() {
     })
     .then(response => {
         if(!response.ok) {
-            let msg = '';
-
             if(response.status == 403) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
             } else if(response.status == 401) {
-                window.location.href = 'index.html';
                 logout();
-                msg = 'Faça login novamente!';
-                throw new Error('Não foi possível concluir: ' + msg);
-            }  else {
-                msg = 'Faça login novamente!'
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else if(response.status == 400) {
+                throw new Error('Não foi possível concluir: A deadline deve ser no futuro');
+            } else if(response.status == 500) {
                 logout();
-                throw new Error('Não foi possível concluir: ' + msg);
-            };
-        };
-
-        if(response.status == 400) {
-            throw new Error('Não foi possível concluir: Dado inconsistente');
-        };
-
-        if(response.status == 500) {
-            window.location.href = 'index.html';
-            alert('Faça login novamente!');
-            logout();
-            throw new Error('Faça login novamente!');
-        };
-        return response.text();
-    })
-    .then(() => {
-        alert('Deadline alterada com sucesso!');
-        document.location.reload(true);
+                window.location.href = 'login.html';
+                throw new Error('Faça login novamente!');
+            } else {
+                throw new Error('Tente novamente');
+            }
+        } else {
+            response.json().then(data => {
+                alert('Data alterada com sucesso!');
+                document.location.reload(true);
+            });
+        }
     })
     .catch(error => {
         alert(error.message);

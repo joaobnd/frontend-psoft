@@ -1,6 +1,10 @@
 import renderComments from './commentService.js';
 import { renderLikes, renderDislikes } from './likeService.js';
 
+if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
+    window.location.href = "login.html";
+};
+
 window.onload = () => {
     getCampaign();
 };
