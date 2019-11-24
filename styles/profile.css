@@ -123,7 +123,30 @@ h2 {
 }
 
 #my-data-div{
-    padding: 5% 10%;
+    padding: 1% 5%;
+    text-align: left;
+}
+
+#my-data-div span{
+    font-size: 18px;
+    color: #777;
+    font-weight: bold;
+}
+
+#my-data-div p{
+    margin: 10px 0px 25px 0px;
+    padding: 5px 5px 5px 4px;
+    background-color: #FEFEFE;
+    width: 300px;
+    box-shadow: 0px -1px 3px #999;
+}
+
+h3{
+    padding: 20px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 25px;
+    color: #6e6e6e;
 }
 
 #my-campaigns-section {
