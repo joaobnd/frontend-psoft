@@ -2,66 +2,48 @@ const $search_btn = document.querySelector('#search-btn');
 const $campaigns_div = document.querySelector('#container-list');
 
 $search_btn.addEventListener('click', () => {
-    checkFields();
+    let $search_value = document.querySelector('#search-value').value;
+
+    if ($search_value == '' ) {
+        alert('O campo não pode estar vazio!')
+    } else {
+        searchCampaigns($search_value);
+    }
 });
 
-function searchCampaign(states) {
-    let $search_value = document.querySelector('#search-value').value;
+
+function searchCampaigns(search) {
+    let $campaign_filter = document.querySelector('#campaign-filter');
     
-    fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns', {
-        method: 'GET',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify({
-            str: $search_value,
-            status: states
-        })
-    })
-    .then(response => {
-        if(response.status == 404) {
-            window.location.href = 'campaigns.html';
-        } else if(response.status == 500) {
-            window.location.href = 'index.html';
-            logout();
-            alert('Faça login novamente!');
-        }
-        response.json().then(data => {
-            console.log(data);
-        });
-    })
-    .catch(error => {
-        alert('Ocorreu um erro com o servidor!');
-        window.location.href = 'index.html';
-    });
+    
 };
 
-function checkFields() {
-    event.preventDefault();
-    let states = [];
+/**
+ * 
+ */
+// function filter() {
+//     let $active = document.querySelector('#active-option');
+//     let $finished = document.querySelector('#finished-option');
+//     let $overdue = document.querySelector('#overdue-option');
+//     let $completed = document.querySelector('#completed-option');
 
-    let $active = document.querySelector('#active-option');
-    let $finished = document.querySelector('#finished-option');
-    let $overdue = document.querySelector('#overdue-option');
-    let $completed = document.querySelector('#completed-option');
+//     event.preventDefault();
+    
 
-    if (!$active.checked && !$finished.checked && !$overdue.checked && !$completed.checked ) {
-        event.preventDefault();
-        alert('Selecione pelo menos uma opção de filtragem')
-    } else {
-        if ($active.checked) {
-            states.push('Ativa');
-        }
-        if ($finished.checked) {
-            states.push('Encerrada');
-        }
-        if ($overdue.checked) {
-            states.push('Vencida');
-        }
-        if ($completed.checked) {
-            states.push('Concluida');
-        }
-        searchCampaign(states);
-    }
+
+//     if (!$active.checked && !$finished.checked && !$overdue.checked && !$completed.checked ) {
+//         event.preventDefault();
+//         alert('Selecione pelo menos uma opção de filtragem')
+//     } else {
+//         searchCampaigns();
+//     }
+// };
+
+/**
+ * Desloga o usuário do sistema.
+ */
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
 };
