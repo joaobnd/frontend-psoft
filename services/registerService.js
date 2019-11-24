@@ -70,7 +70,7 @@ function submitCampaign() {
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             } 
             else {
-                msg = 'Ocorreu um erro';
+                msg = 'Tente novamente';
                 throw new Error('Não foi possível completar o cadastro: ' + msg);
             };
         };
