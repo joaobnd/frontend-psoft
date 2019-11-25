@@ -17,9 +17,14 @@ function getActiveCampaigns() {
         }
         response.json().then(data => {
             console.log(data);
+            filterCampaigns(data);
         });
     })
     .catch(error => {
         error.message();
     });
+}
+
+function filterCampaigns(data) {
+    
 }

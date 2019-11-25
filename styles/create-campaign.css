@@ -131,6 +131,7 @@ h2 {
 }
 
 .submit-form button:hover {
+    cursor: pointer;
     background-color: #3A7ECA;
     padding: 10px 15px;
     font-size: 16px;

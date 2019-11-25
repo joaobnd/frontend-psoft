@@ -74,10 +74,15 @@ body {
 }
 
 #wallpaper-section div {
-    background-color: #f8f8f8;
-    margin-top: 50px;
+    background-color: #4a8fda;
+    background: linear-gradient(to right, #F8F8F8, #E8E8E8) no-repeat 00 / cover;
+    padding-top: 50px;
     height: 340px;
-    text-align: center;    
+    text-align: center;  
+    background-image: url(../styles/img/hands-background2.png);
+    width: 100%;
+    background-size: cover;
+    background-position: center center;  
 }
 
 #wallpaper-section img {
@@ -132,6 +137,33 @@ body {
     border-style: none;
 }
 
+#campaigns-section {
+    height: 450px;
+    text-align: center;
+    
+}
+
+#campaigns-div {
+    padding: 15px;
+}
+
+#campaigns-div span{
+    text-transform: uppercase;
+    color: #131415;
+    font-size: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    padding-right: 6px;
+}
+
+#filter-options {
+    padding: 8px;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    color: #171718;
+}
 
 footer {
     padding: 2px 0;
