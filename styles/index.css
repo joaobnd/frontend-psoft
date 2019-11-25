@@ -89,7 +89,7 @@ body {
 #wallpaper-section img {
     margin: 0 auto;
     display: block;
-    image-resolution: cover;
+    height: 250px;
 }
 
 #wallpaper-section a {
