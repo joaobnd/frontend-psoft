@@ -89,6 +89,9 @@ function updateDescription() {
             });
         }
     })
+    .catch(error => {
+        alert('Tente novamente');
+    });
 };
 
 /**
@@ -132,6 +135,9 @@ function updateGoal() {
             });
         }
     })
+    .catch(error => {
+        alert('Tente novamente');
+    });
 };
 
 /**
@@ -221,6 +227,28 @@ function finishCampaign() {
         console.log('finishCampaign error');
         alert('Ocorreu um erro com o servidor!');
     });
+};
+
+let $modal = document.querySelector('#edit-modal');
+let $open_btn = document.querySelector('#manage-btn');
+let $close_btn = document.querySelector('#closeBtn')
+
+$open_btn.addEventListener('click', openModal);
+$close_btn.addEventListener('click', closeModal);
+window.addEventListener('click', clickOutside);
+
+function openModal() {
+    $modal.style.display = 'block';
+};
+
+function closeModal() {
+    $modal.style.display = 'none';
+};
+
+function clickOutside(e) {
+    if (e.target == $modal) {
+        $modal.style.display = 'none';
+    };
 };
 
 /**

@@ -222,6 +222,7 @@ footer {
 #campaign-title-div {
     background-color: #4a8fda;
     text-align: center;
+    padding: 15px;
 }
 
 #campaign-title-div p{
@@ -329,6 +330,91 @@ footer {
     width: 100%;   
 }
 
+#donation-container {
+    display: none;
+    position: fixed;
+    margin: 5% auto;
+}
+
+#closeContributionBtn {
+    background-color: #888;
+    float: right;
+    font-size: 30px;
+}
+
+#closeContributionBtn:hover, #closeContributionBtn:focus {
+    background-color: #444;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#contribute-button {
+    display: inline;
+    cursor: pointer;
+    padding: 20px 30px;
+    background-color: rgb(36, 202, 104);
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
+}
+
+#contribute-button:hover {
+    background-color: rgb(33, 182, 95);
+}
+
+#donation-container span{
+    font-size: 30px;
+    color: #F8F8F8;
+}
+
+#donation-container form {
+    margin: 0 auto;
+    display: block;
+}
+
+#donation-container p{
+    font-size: 25px;
+    color: #F8F8F8;
+}
+
+#contribute-area label {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 8px;
+    color: #6E6E6E;
+}
+
+#contribute-area input[type=number] {
+    font-size: 18px;
+    padding: 10px;
+    width: 400px;
+    margin-bottom: 15px;
+    margin: 0 auto;
+    display: block;
+}
+
+#send-value-btn {
+    margin: 15px auto;
+    display: block;
+    background-color: #E8E8E8;
+    color: #555;
+    font-weight: bold;
+    border: solid 1px #AAA;
+    padding: 8px 30px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+#send-value-btn:hover {
+    cursor: pointer;
+    background-color: rgb(36, 202, 104);
+    color: #E8E8E8;
+}
+
 #manage-container {
     display: none;
     width: 900px;
@@ -337,8 +423,8 @@ footer {
     text-align: center;
     height: 38px;
     border: solid 1px #4a8fda;
+    
 }
-
 
 #manage-container a{
     font-weight: bold;
@@ -348,11 +434,13 @@ footer {
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
+    
 }
 
 #manage-container a:hover{
     background-color: #1a4472;
     color: #E8E8E8;
+    
 }
 
 .modal {
@@ -369,10 +457,10 @@ footer {
 
 .modal-content {
     background-color: #F8F8F8;
-    margin: 2% auto;
+    margin: 1% auto;
     padding: 20px;
     width: 650px;
-    height: 600px;
+    height: 565px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     animation-name: modalopen;
     animation-duration: 0.5s;
