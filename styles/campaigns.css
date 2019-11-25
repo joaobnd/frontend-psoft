@@ -741,15 +741,24 @@ footer {
 
 /* CAMPAIGNS */
 
+#campaigns-section {
+    margin: 0% 10% 10% 13%;
+}
+
 #container-list-campaigns {
-    margin: 30px 0% 25px 0%;
     text-align: center;
+    display: block;
 }
 
 .campaign-unit {
+    float: left;
     border: solid 1px #CCC;
     border-radius: 5px;
-    margin: 20px 28%;
+    margin: 10px 10px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
+    width: 45%;
+    box-sizing: border-box;
+    
 }
 
 .campaign-unit a{
@@ -760,13 +769,15 @@ footer {
 
 .campaign-unit-data-div {
     background-color: #4a8fda;
-    background: linear-gradient(to right, #39409E, #4a8fda) no-repeat 00 / cover;
     color: #E8E8E8;
     padding: 10px;
+    background-image: url(./img/hands-background.jpg);
+    background-size: cover;
+    background-position-y: 200px;
 }
 
 .campaign-unit-name {
-    font-size: 25px;
+    font-size: 21px;
     padding: 8px;
     display: block;
     margin: 3px auto 0px auto;

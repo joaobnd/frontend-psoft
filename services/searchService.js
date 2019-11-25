@@ -116,6 +116,8 @@ function renderCampaigns() {
 
     if (campaignsToShow.length == 0) {
         $campaigns_div.innerHTML = '<h3>Nenhuma campanha foi encontrada</h3>'
+    } else {
+        $campaigns_div.innerHTML = '<h3 style="color: #4a8fda">Resultados</h3>'
     }
 
     for (let i = 0; i < campaignsToShow.length; i++) {
