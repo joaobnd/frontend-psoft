@@ -31,6 +31,7 @@ function getProfile() {
         });
     })
     .catch(error => {
+        logout();
         alert(error.message);
     });
 }
