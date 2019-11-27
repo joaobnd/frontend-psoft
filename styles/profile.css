@@ -266,6 +266,7 @@ footer {
     margin-left: 310px;
     border: solid 0.5px #CCC;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
+    margin-bottom: 260px;
 }
 
 #owner-campaigns h2 {

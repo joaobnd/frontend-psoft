@@ -1,4 +1,9 @@
 let $hash = location.hash.split('#')[1];
+let $search_user_campaigns = document.querySelector('#search-user-campaign');
+let $search_user_donate_campaigns = document.querySelector('#search-user-donate-campaign');
+
+let localData = [];
+let localDataDonate = [];
 
 if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
     window.location.href = "login.html";
@@ -11,10 +16,6 @@ window.onload = () => {
 };
 
 function getUser() {
-
-    if ($hash == '' || $hash == null) {
-        window.location.href = 'index.html';
-    };
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/users/' + $hash, {
         method: 'GET',
@@ -32,7 +33,6 @@ function getUser() {
             alert('Faça login novamente!');
         }
         response.json().then(data => {
-            console.log(data);
             renderUser(data);
         });
     })
@@ -60,8 +60,8 @@ function getUserCampaigns() {
             alert('Faça login novamente!');
         }
         response.json().then(data => {
-            console.log(data);
-            renderUserCampaigns(data);
+            filterUserCampaigns(data);
+            localData = data;
         });
     })
     .catch(() => {
@@ -88,8 +88,8 @@ function getUserDonateCampaigns() {
             alert('Faça login novamente!');
         }
         response.json().then(data => {
-            console.log(data);
-            renderUserDonateCampaigns(data);
+            filterUserDonateCampaigns(data);
+            localDataDonate = data;
         });
     })
     .catch(() => {
@@ -97,6 +97,56 @@ function getUserDonateCampaigns() {
         logout();
         window.location.href = 'index.html';
     });
+}
+
+$search_user_campaigns.addEventListener('input', () => {
+    filterUserCampaigns(localData);
+});
+
+$search_user_donate_campaigns.addEventListener('input', () => {
+    filterUserDonateCampaigns(localDataDonate);
+});
+
+function filterUserCampaigns(array) {
+    
+    let $search = document.querySelector('#search-user-campaign').value;
+    let tempArray = [];
+
+    console.log($search);
+
+    if ($search == '' || $search == null) {
+        renderUserCampaigns(array);
+    } else {
+        for (let i = 0; i< array.length; i++) {
+            if (array[i].name.toUpperCase().includes($search.toUpperCase())) {
+                tempArray.push(array[i]);
+            } else if (array[i].description.toUpperCase().includes($search.toUpperCase())) {
+                tempArray.push(array[i]);
+            }
+        }
+        renderUserCampaigns(tempArray);
+    }
+}
+
+function filterUserDonateCampaigns(array) {
+    
+    let $search = document.querySelector('#search-user-donate-campaign').value;
+    let tempArray = [];
+
+    console.log($search);
+
+    if ($search == '' || $search == null) {
+        renderUserDonateCampaigns(array);
+    } else {
+        for (let i = 0; i< array.length; i++) {
+            if (array[i].name.toUpperCase().includes($search.toUpperCase())) {
+                tempArray.push(array[i]);
+            } else if (array[i].description.toUpperCase().includes($search.toUpperCase())) {
+                tempArray.push(array[i]);
+            }
+        }
+        renderUserDonateCampaigns(tempArray);
+    }
 }
 
 function renderUser(user) {
@@ -141,6 +191,11 @@ function renderUserCampaigns(array) {
             </a>
         </div>`
     }
+
+    if (array.length == 0) {
+        $user_campaigns.innerHTML += 
+        `<h3>Nenhum resultado encontrado.</h3>`
+    }
 }
 
 function renderUserDonateCampaigns(array) {
@@ -176,6 +231,10 @@ function renderUserDonateCampaigns(array) {
                 </div>
             </a>
         </div>`
+    }
+    if (array.length == 0) {
+        $user_donate_campaigns.innerHTML += 
+        `<h3>Nenhum resultado encontrado.</h3>`
     }
 }
 
