@@ -252,9 +252,9 @@ body {
 }
 
 footer {
-    padding: 2px auto;
+    padding: 4px;
     background-color: #171718;
-    margin-top: auto;
+    
 }
 
 #launch-div button:hover{
