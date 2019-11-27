@@ -41,7 +41,7 @@ function filterCampaigns(data) {
 
             j = i;
 
-            while((j > 0) && ((data[j - 1].goal - getCurrentValue(data[j - 1].donations)) > current.goal - getCurrentValue(data[i].donations))) {
+            while((j > 0) && ((data[j - 1].goal - getCurrentValue(data[j - 1].donations)) > current.goal - getCurrentValue(current.donations))) {
                 data[j] = data[j - 1];
                 j = j - 1;       
             }
@@ -54,7 +54,7 @@ function filterCampaigns(data) {
             j = i;
 
             while((j > 0) && (((data[j - 1].deadLine.substring(0, 4)) + (data[j - 1].deadLine.substring(5, 7)) + (data[j - 1].deadLine.substring(8)))
-                > ((data[i].deadLine.substring(0, 4)) + (data[i].deadLine.substring(5, 7)) + (data[i].deadLine.substring(8))))) {
+                > ((current.deadLine.substring(0, 4)) + (current.deadLine.substring(5, 7)) + (current.deadLine.substring(8))))) {
                 data[j] = data[j - 1];
                 j = j - 1;
             }
@@ -66,7 +66,7 @@ function filterCampaigns(data) {
 
             j = i;
 
-            while((j > 0) && ((data[j - 1].goal - getCurrentValue(data[j - 1].donations)) > current.goal - getCurrentValue(data[i].donations))) {
+            while((j > 0) && ((data[j - 1].likes.length < current.likes.length))) {
                 data[j] = data[j - 1];
                 j = j - 1;       
             }
@@ -99,12 +99,16 @@ function renderCampaigns(array) {
                     <div class="campaign-unit-goal">
                         <span>Meta:</span>                       
                         <p class="campaign-goal-value">R$${array[i].goal},00</p>
-                        <span>Arrecadado:</span>
+                        <span>Arrecadado</span>
                         <p class="campaign-achieved-value">R$${getCurrentValue(array[i].donations)},00</p>
                     </div>
                     <div class="campaign-unit-deadline">
-                        <span>Encerra em:</span>                       
+                        <span>Encerra em</span>                       
                         <p class="campaign-deadline-value">${array[i].deadLine}</p>
+                    </div>
+                    <div class="campaign-unit-likes">
+                        <span>Curtidas</span>                       
+                        <p class="campaign-likes-value">${array[i].likes.length}</p>
                     </div>
                 </div>
             </a>
