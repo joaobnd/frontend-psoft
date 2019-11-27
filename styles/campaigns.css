@@ -754,55 +754,93 @@ footer {
 
 #container-list-campaigns {
     text-align: center;
-    display: block;
 }
 
 .campaign-unit {
+    border: solid 1.5px #BBB;
+    width: 30%;
+    height: 350px;
     float: left;
-    border: solid 1px #CCC;
-    border-radius: 5px;
-    margin: 10px 10px;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
-    width: 45%;
     box-sizing: border-box;
-    
+    margin: 10px 10px;
 }
 
-.campaign-unit a{
-    cursor: pointer;
+.campaign-unit a {
     text-decoration: none;
+    color: #333;
 }
 
+.campaign-unit a:visited {
+    text-decoration: none;
+    color: #333;
+}
 
-.campaign-unit-data-div {
-    background-color: #4a8fda;
-    color: #E8E8E8;
-    padding: 10px;
-    background-image: url(./img/hands-background.jpg);
+.campaign-unit-img-div {
+    background-image: url(./img/hands-background2.png);
     background-size: cover;
-    background-position-y: 200px;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.campaign-unit-img-div img {
+    height: 50px;
+}
+
+.campaign-unit-name-div {
+    color: #333;
+    padding: 10px;
+    max-width: 35ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .campaign-unit-name {
-    font-size: 21px;
+    font-size: 16px;
     padding: 8px;
-    display: block;
-    margin: 3px auto 0px auto;
-    text-transform: uppercase;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+    font-weight: bolder; 
+    
 }
 
-.campaign-unit-owner-data img{
-    display: block;
-    margin: 5px auto;
+.campaign-unit-owner-data {
+    background-color: #E8E8E8;
+    padding: 8px;
+    font-size: 12px;
 }
 
-.campaign-unit-status {
-    padding: 6px;
-    display: block;
-    background-color: #e8e8e8;
-    margin: 6px auto;
-    color: #39409E;
+.campaign-unit-goal {
+    padding: 8px;
+}
+
+.campaign-goal-value {
+    padding: 8px;
+    font-size: 13px;
+}
+
+.campaign-achieved-value {
+    font-weight: bold; 
+    padding-bottom: 8px;
+}
+
+.campaign-unit-deadline {
+    background-color: #E8E8E8;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.campaign-deadline-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.campaign-unit-likes {
+    padding: 8px;
+}
+
+.campaign-likes-value {
+    color: #4a8fda;
     font-weight: bold;
 }
 
