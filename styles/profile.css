@@ -219,3 +219,35 @@ footer {
 #profile-btn img{
     height: 42px;
 }
+
+/* USER PROFILE */
+
+#user-data-section {
+    margin: 25px 100px;
+    width: 300px;
+    border: solid 0.5px #CCC;
+    padding: 30px 0px;
+    position: fixed;
+}
+
+
+#user-img-div img {
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    height: 80px;
+}
+
+#user-data-div {
+    text-align: center;
+    font-size: 40px;
+    color: #555;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+#user-profile-email {
+    font-size: 20px;
+    font-weight: 100;
+    color: #6e6e6e;
+}
