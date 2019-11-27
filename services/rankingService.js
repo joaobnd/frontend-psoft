@@ -2,6 +2,12 @@ window.onload = () => {
     getActiveCampaigns();
 }
 
+let $filter = document.querySelector('#filter-options');
+
+$filter.addEventListener('click', () => {
+    getActiveCampaigns();
+})
+
 function getActiveCampaigns() {
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/actives', {
@@ -17,42 +23,63 @@ function getActiveCampaigns() {
         }
         response.json().then(data => {
             console.log(data);
-            filterCampaigns(data);
+            filterCampaigns(data); 
         });
     })
     .catch(error => {
-        error.message();
+        error.message;
     });
 }
 
 function filterCampaigns(data) {
     let $filter_options = document.querySelector('#filter-options');
-    let ranking = data;
-    let minIndex, temp;
+    let i, j, current;
 
     if ($filter_options.value == 'A') {
-        for (let i = 0; i < ranking.length; i++) {
-            minIndex = i;
+        for (i = 1; i < data.length; i++) {
+            current = data[i];
 
-            for (let j = i + 1; j < ranking.length; j++) {
-                if (ranking[j].goal - getCurrentValue(ranking[j].donations) 
-                    < ranking[minIndex].goal - getCurrentValue(ranking[minIndex].donations)) {
-                        minIndex = j;
-                } 
+            j = i;
 
-                if (minIndex != i) {
-                    temp = ranking[i];
-                    ranking[i] = ranking[minIndex];
-                    ranking[minIndex] = temp;
-                }
+            while((j > 0) && ((data[j - 1].goal - getCurrentValue(data[j - 1].donations)) > current.goal - getCurrentValue(data[i].donations))) {
+                data[j] = data[j - 1];
+                j = j - 1;       
             }
+            data[j] = current;
         }
-    } 
-    renderCampaigns(ranking);
+    } else if ($filter_options.value == 'B') {
+        for (i = 1; i < data.length; i++) {
+            current = data[i];
+
+            j = i;
+
+            while((j > 0) && (((data[j - 1].deadLine.substring(0, 4)) + (data[j - 1].deadLine.substring(5, 7)) + (data[j - 1].deadLine.substring(8)))
+                > ((data[i].deadLine.substring(0, 4)) + (data[i].deadLine.substring(5, 7)) + (data[i].deadLine.substring(8))))) {
+                data[j] = data[j - 1];
+                j = j - 1;
+            }
+            data[j] = current;
+        }
+    } else {
+        for (i = 1; i < data.length; i++) {
+            current = data[i];
+
+            j = i;
+
+            while((j > 0) && ((data[j - 1].goal - getCurrentValue(data[j - 1].donations)) > current.goal - getCurrentValue(data[i].donations))) {
+                data[j] = data[j - 1];
+                j = j - 1;       
+            }
+            data[j] = current;
+        }
+    }
+
+    renderCampaigns(data);
 }
 
 function renderCampaigns(array) {
     let $container = document.querySelector('#campaigns-ranking');
+    $container.innerHTML = '';
     let i = 0;
 
     while (i < 5) {
@@ -75,6 +102,10 @@ function renderCampaigns(array) {
                         <span>Arrecadado:</span>
                         <p class="campaign-achieved-value">R$${getCurrentValue(array[i].donations)},00</p>
                     </div>
+                    <div class="campaign-unit-deadline">
+                        <span>Encerra em:</span>                       
+                        <p class="campaign-deadline-value">${array[i].deadLine}</p>
+                    </div>
                 </div>
             </a>
         </div>`
@@ -87,6 +118,7 @@ function renderCampaigns(array) {
  * Retorna o valor total arrecadado da campanha.
  */
 function getCurrentValue(donations) {
+    
     let sum = 0;
 
     for (let i = 0; i < donations.length; i++) {
