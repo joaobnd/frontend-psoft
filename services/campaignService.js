@@ -1,8 +1,6 @@
 import renderComments from './commentService.js';
 import { renderLikes, renderDislikes } from './likeService.js';
 
-let localData = {};
-
 if (localStorage.getItem('token') == null || localStorage.getItem('token') == '') {
     window.location.href = "login.html";
 };

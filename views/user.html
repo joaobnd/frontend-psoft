@@ -7,7 +7,7 @@
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
     <link rel="stylesheet" href="../styles/profile.css">
-    <script src="../services/userService.js" type="module"></script>
+    <script src="../services/userPageService.js" type="module"></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -42,13 +42,35 @@
     </div>
     
     <!-- PERFIL DO USUARIO -->
-    <section id="user-data-section">
-        <div id="user-img-div">
-            <img src="../styles/img/profile2.png" alt="profile logo">
+    <section id="data-container"> 
+        <div id="user-data-section">
+            <div id="user-img-div">
+                <img src="../styles/img/profile2.png" alt="profile logo">
+            </div>
+            <div id="user-data-div">
+                <p id="user-profile-name"></p>
+                <p id="user-profile-email"></p>
+            </div>
         </div>
-        <div id="user-data-div">
-            <p id="user-profile-name">Gabriel Costa</p>
-            <p id="user-profile-email">gabrielwebr@gmail.com</p>
+        <div id="owner-campaigns">
+            <h2>Campanhas do usuário</h2>
+            
+            <form id="campaign-form">
+                <input type="text" id="search-user-campaign" placeholder="Encontrar campanha" required>
+            </form>
+            <div id="user-campaigns">
+                
+            </div>
+
+            <br>
+            <h2>Campanhas que o usuário fez realiza alguma doação</h2>
+
+            <form id="campaign-form">
+                <input type="text" id="search-user-campaign" placeholder="Encontrar campanha" required>
+            </form>
+            <div id="user-donate-campaigns">
+                
+            </div>
         </div>
     </section>
 
