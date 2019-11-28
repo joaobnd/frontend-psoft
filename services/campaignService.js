@@ -67,6 +67,7 @@ function renderElements(data) {
     let $update_year = document.querySelector('#campaign-deadline-year');
     let $title_donate = document.querySelector('#campaign-title-contributing');
     let $owner_link = document.querySelector('#owner-link');
+    let $campaign_link = document.querySelector('#campaign-link');
 
     $title.innerHTML = data.name;
     $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
@@ -79,6 +80,7 @@ function renderElements(data) {
     let str = data.deadLine;
     $deadline.innerHTML = str.substring(8) + '/' + str.substring(5, 7) + '/' + str.substring(0, 4);
     $percent.innerHTML = getCampaignPercent(data.donations, data.goal);
+    $campaign_link.innerHTML = 'ajude-psoft.netlify.com/views/campaigns.html/' + data.urlId;
 
     $update_description.innerHTML = data.description;
     $update_goal.value = data.goal;

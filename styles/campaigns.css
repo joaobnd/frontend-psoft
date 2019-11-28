@@ -198,10 +198,32 @@ footer {
 
 /* CAMPAIGN */
 
+#campaign-share {
+    background-color: #EEE;
+    width: 900px;
+    margin: 10px auto 0px auto;
+    padding: 10px 0px;
+    border-radius: 8px;
+}
+
+#campaign-share {
+    text-align: center;
+    font-size: 13px;
+}
+
+#campaign-share label {
+    margin: auto 5px auto 0px;
+}
+
+#campaign-share span {
+    font-weight: 600;
+    color: #1a4472;
+}
+
 #campaign-header {
     background-color: #EEE;
     width: 900px;
-    margin: 30px auto 0px auto;
+    margin: 10px auto 0px auto;
     display: block;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -713,20 +735,67 @@ footer {
     width: 30%;
 }
 
+.comment-unit a {
+    text-decoration: none;
+}
+
+.comment-unit a:hover p{
+    color: #4a8fda;
+}
+
 .comment-time {
     font-size: 14px;
+    margin-left: 5px;
+    color: #6e6e6e;
+}
+
+.comment-delete {
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+    color: #cc4a4a;
+    font-weight: 600;
+    padding: 3px;
+}
+
+.comment-delete:hover {
+    background-color: #cc4a4a; 
+    color: #F8F8F8;
 }
 
 .comment-area {
-    padding: 8px 2px;
-    font-size: 15px;
+    display: block;
+    padding: 12px 0px;
+    font-size: 16px;
+}
+
+.reply-btn {
+    margin: 0px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    float: left;
+}
+
+.comment-replies {
+    display: none;
+}
+
+.reply-unit {
+    height: auto;
+    margin: 10px 10% auto 20%;
+    padding: 15px;
+    background-color: #F1F1F1;
+    border-radius: 10px;
 }
 
 .comment-reply {
-    margin: 10px 10% 10px 15%;
-    padding: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 5px auto;
+    padding: 2px;
     background-color: #FFF;
     border-radius: 10px;
+    border: none;
 }
 
 .reply-username {
@@ -744,6 +813,7 @@ footer {
 .reply-area {
     padding: 8px 2px;
     font-size: 15px;
+    display: block;
 }
 
 /* CAMPAIGNS */
