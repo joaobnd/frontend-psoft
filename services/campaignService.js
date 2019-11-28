@@ -38,7 +38,6 @@ function getCampaign() {
             renderLikes(data);
             renderDislikes(data);
             showWidget(data);
-            console.log(data);
         });
     })
     .catch(() => {
@@ -67,6 +66,8 @@ function renderElements(data) {
     let $update_month = document.querySelector('#campaign-deadline-month');
     let $update_year = document.querySelector('#campaign-deadline-year');
     let $title_donate = document.querySelector('#campaign-title-contributing');
+    let $owner_link = document.querySelector('#owner-link');
+    let $campaign_link = document.querySelector('#campaign-link');
 
     $title.innerHTML = data.name;
     $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
@@ -75,9 +76,11 @@ function renderElements(data) {
     $lname.innerHTML = data.owner.lastName;
     $status.innerHTML = data.status;
     $description.innerHTML = data.description;
+    $owner_link.href = 'user.html#' + data.owner.email;
     let str = data.deadLine;
     $deadline.innerHTML = str.substring(8) + '/' + str.substring(5, 7) + '/' + str.substring(0, 4);
     $percent.innerHTML = getCampaignPercent(data.donations, data.goal);
+    $campaign_link.innerHTML = 'ajude-psoft.netlify.com/views/campaigns.html/' + data.urlId;
 
     $update_description.innerHTML = data.description;
     $update_goal.value = data.goal;

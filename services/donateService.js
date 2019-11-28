@@ -10,7 +10,9 @@ $contributeBtn.addEventListener('click', openContribution);
 $contributeCloseBtn.addEventListener('click', closeContribution);
 window.addEventListener('click', clickOutside);
 
-$sendBtn.addEventListener('click', donateValue);
+$sendBtn.addEventListener('click', () => {
+    donateValue();
+});
 
 function openContribution() {
     $contributeArea.style.display = 'block';
@@ -30,6 +32,8 @@ function donateValue() {
     let $value = document.querySelector('#contributing-value').value;
     let $current_value = document.querySelector('#current-value').innerHTML;
     let temp = $current_value.substr(0, $current_value.length - 3);
+
+    event.preventDefault();
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash +'/donation', {
         method: 'PUT',
@@ -57,21 +61,20 @@ function donateValue() {
                 window.location.href = 'login.html';
                 throw new Error('Faça login novamente!');
             } else {
-                throw new Error('Tente novamente');
+                throw new Error(response.status)
             }
-        } else {
-            response.json().then(data => {
-                alert('Valor doado com sucesso!');
-
-                if (temp < data.goal && getTotalValue(data.donations) > data.goal) {
-                    alert('Parabéns, sua doação fez a campanha atingir a meta!')
-                }
-                document.location.reload(true);
-            });
         }
+        response.json().then(data => {
+            alert('Valor doado com sucesso!');
+
+            if (temp < data.goal && getTotalValue(data.donations) > data.goal) {
+                alert('Parabéns, sua doação fez a campanha atingir a meta!')
+            }
+            document.location.reload(true);
+        });
     })
-    .catch(() => {
-        alert('Tente novamente');
+    .catch(error => {
+        alert('Ocorreu um erro, tente novamente!');
         document.location.reload(true);
     });
 };

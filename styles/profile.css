@@ -235,7 +235,6 @@ footer {
     border: solid 0.5px #CCC;
     padding: 20px 0px;
     position: fixed;
-    background-color: rgb(238, 244, 250);
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
 }
 
@@ -340,7 +339,7 @@ footer {
 .campaign-unit-name-div {
     color: #333;
     padding: 10px;
-    max-width: 35ch;
+    max-width: 28ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

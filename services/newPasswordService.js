@@ -11,12 +11,12 @@ function checkFields() {
     event.preventDefault();
 
     if($password == '' || $password_confirm == '') {
-        alert('Os campos precisam ser preenchidos');
-    }
-    else if ($password != $password_confirm) {
+        alert('Os campos precisam ser preenchidos.');
+    } else if ($password.length < 8) {
+        alert('A senha deve conter pelo menos 8 caracteres.')
+    } else if ($password != $password_confirm) {
         alert('As senhas devem coincidir.');
-    } 
-    else {
+    } else {
         checkToken($password);
     }
 };
@@ -42,8 +42,6 @@ function changePassword(token, newPassword) {
         body: newPassword
     })
     .then(response => {
-        let msg = "";
-
         if (!response.ok) {
             window.location.href = 'forgot-password.html';
             alert("Este link expirou, solicite outro!");

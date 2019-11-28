@@ -37,7 +37,7 @@ function getUser() {
         });
     })
     .catch(() => {
-        alert('Ocorreu um erro com o servidor!');
+        alert('Ocorreu um erro, faça login novamente!');
         logout();
         window.location.href = 'index.html';
     });
@@ -64,11 +64,6 @@ function getUserCampaigns() {
             localData = data;
         });
     })
-    .catch(() => {
-        alert('Ocorreu um erro com o servidor!');
-        logout();
-        window.location.href = 'index.html';
-    });
 }
 
 function getUserDonateCampaigns() {
@@ -92,11 +87,6 @@ function getUserDonateCampaigns() {
             localDataDonate = data;
         });
     })
-    .catch(() => {
-        alert('Ocorreu um erro com o servidor!');
-        logout();
-        window.location.href = 'index.html';
-    });
 }
 
 $search_user_campaigns.addEventListener('input', () => {
@@ -111,8 +101,6 @@ function filterUserCampaigns(array) {
     
     let $search = document.querySelector('#search-user-campaign').value;
     let tempArray = [];
-
-    console.log($search);
 
     if ($search == '' || $search == null) {
         renderUserCampaigns(array);
@@ -132,8 +120,6 @@ function filterUserDonateCampaigns(array) {
     
     let $search = document.querySelector('#search-user-donate-campaign').value;
     let tempArray = [];
-
-    console.log($search);
 
     if ($search == '' || $search == null) {
         renderUserDonateCampaigns(array);

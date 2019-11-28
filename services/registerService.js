@@ -76,7 +76,7 @@ function submitCampaign() {
         };
         return response.json()
         .then(data => {
-            alert('Campanha cadastrada com sucesso!');
+            alert('Campanha cadastrada com sucesso! Você já pode compartilhar a campanha com o link que está na página');
             location.href = 'campaign.html#' + data.urlId;
         });
     })

@@ -16,8 +16,9 @@ function checkFields() {
 
     if ($fname == "" || $lname == "" || $email == "" || $creditcard == "" || $password == "" || $password_confirm == "") {
         alert('Todos os campos devem ser preenchidos!');
-    }
-    else if ($password != $password_confirm) {
+    } else if ($password.length < 8) {
+        alert('A senha deve conter pelo menos 8 caracteres.')
+    } else if ($password != $password_confirm) {
         alert('As senhas devem coincidir.');
     } else {
         registerUser();

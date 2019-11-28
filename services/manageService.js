@@ -54,6 +54,8 @@ $finish_campaign_btn.addEventListener('click', () => {
 function updateDescription() {
     let $update_description = document.querySelector('#campaign-update-description').value;
 
+    event.preventDefault();
+
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/description', {
         method: 'PUT',
         headers: {
@@ -79,8 +81,6 @@ function updateDescription() {
                 logout();
                 window.location.href = 'login.html';
                 throw new Error('Faça login novamente!');
-            } else {
-                throw new Error('Tente novamente');
             }
         } else {
             response.json().then(data => {
@@ -99,6 +99,8 @@ function updateDescription() {
  */
 function updateGoal() {
     let $update_goal = document.querySelector('#campaign-update-goal').value;
+
+    event.preventDefault();
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash +'/goal', {
         method: 'PUT',
@@ -125,8 +127,6 @@ function updateGoal() {
                 logout();
                 window.location.href = 'login.html';
                 throw new Error('Faça login novamente!');
-            } else {
-                throw new Error('Tente novamente');
             }
         } else {
             response.json().then(data => {
@@ -148,6 +148,8 @@ function updateDeadline() {
     let $update_month = document.querySelector('#campaign-deadline-month').value;
     let $update_year = document.querySelector('#campaign-deadline-year').value;
     let newDate = $update_year + '-' + getMonthNumber($update_month) + '-' + $update_day;
+
+    event.preventDefault();
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash +'/deadline', {
         method: 'PUT',
@@ -174,8 +176,6 @@ function updateDeadline() {
                 logout();
                 window.location.href = 'login.html';
                 throw new Error('Faça login novamente!');
-            } else {
-                throw new Error('Tente novamente');
             }
         } else {
             response.json().then(data => {
@@ -194,6 +194,8 @@ function updateDeadline() {
  */
 function finishCampaign() {
     let $hash = location.hash.split('#')[1];
+
+    event.preventDefault();
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash, {
         method: 'PUT',
@@ -224,7 +226,6 @@ function finishCampaign() {
     })
     .catch(() => {
         window.location.href = 'index.html';
-        console.log('finishCampaign error');
         alert('Ocorreu um erro com o servidor!');
     });
 };
