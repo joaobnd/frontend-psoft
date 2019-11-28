@@ -25,7 +25,9 @@ $search_btn.addEventListener('click', () => {
     }
 });
 
-
+/**
+ * Realiza uma requisição para retornas todas as campanhas com uma determinada substring
+ */
 function searchCampaigns(search) {
     event.preventDefault();
     
@@ -52,7 +54,6 @@ function searchCampaigns(search) {
             }
         }
         response.json().then(data => {
-            console.log(data)
             localCampaigns = data;
             filter();
         });
@@ -79,7 +80,7 @@ $completed.addEventListener('click', () => {
 })
 
 /**
- * 
+ * Filtra de acordo com as opções do usuário
  */
 function filter() {
     campaignsToShow = [];
@@ -110,7 +111,9 @@ function filter() {
     renderCampaigns();
 };
 
-
+/**
+ * Renderiza as campanhas filtradas
+ */
 function renderCampaigns() {
     $campaigns_div.innerHTML = '';
 

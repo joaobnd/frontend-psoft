@@ -15,8 +15,10 @@ window.onload = () => {
     getUserDonateCampaigns();
 };
 
+/**
+ * Realiza uma requisição para retornar um usuário a partir do email
+ */
 function getUser() {
-
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/users/' + $hash, {
         method: 'GET',
         headers: {
@@ -43,6 +45,9 @@ function getUser() {
     });
 }
 
+/**
+ * Realiza uma requisição para retornar todas as campanhas do usuário
+ */
 function getUserCampaigns() {
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/campaign', {
         method: 'GET',
@@ -66,6 +71,9 @@ function getUserCampaigns() {
     })
 }
 
+/**
+ * Realiza uma requisição para retornar todas as campanhas que o usuário realizou alguma doação
+ */
 function getUserDonateCampaigns() {
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/donations', {
         method: 'GET',
@@ -97,6 +105,9 @@ $search_user_donate_campaigns.addEventListener('input', () => {
     filterUserDonateCampaigns(localDataDonate);
 });
 
+/**
+ * Filtra as campanhas do usuário
+ */
 function filterUserCampaigns(array) {
     
     let $search = document.querySelector('#search-user-campaign').value;
@@ -116,6 +127,9 @@ function filterUserCampaigns(array) {
     }
 }
 
+/**
+ * Filtra as campanhas que o usuário realizou alguma doação
+ */
 function filterUserDonateCampaigns(array) {
     
     let $search = document.querySelector('#search-user-donate-campaign').value;
@@ -135,6 +149,9 @@ function filterUserDonateCampaigns(array) {
     }
 }
 
+/**
+ * Renderiza as informações do usuário na página 
+ */
 function renderUser(user) {
     let $profile_name = document.querySelector('#user-profile-name');
     let $profile_email = document.querySelector('#user-profile-email');
@@ -143,6 +160,9 @@ function renderUser(user) {
     $profile_email.innerHTML = user.email;
 }
 
+/**
+ * Renderiza as campanhas do usuário na página 
+ */
 function renderUserCampaigns(array) {
     let $user_campaigns = document.querySelector('#user-campaigns');
     $user_campaigns.innerHTML = '';
@@ -184,6 +204,9 @@ function renderUserCampaigns(array) {
     }
 }
 
+/**
+ * Renderiza as campanhas que o usuário realizou alguma doação
+ */
 function renderUserDonateCampaigns(array) {
     let $user_donate_campaigns = document.querySelector('#user-donate-campaigns');
     $user_donate_campaigns.innerHTML = '';

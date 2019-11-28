@@ -2,6 +2,9 @@ import getCampaign from './campaignService.js';
 
 let $hash = location.hash.split('#')[1];
 
+/**
+ * Renderiza na tela os likes da campanha
+ */
 function renderLikes(data) {
     let likesList = data.likes;
 
@@ -21,6 +24,9 @@ function renderLikes(data) {
     }
 }
 
+/**
+ * Renderiza na tela os dislikes da campanha
+ */
 function renderDislikes(data) {
     let dislikesList = data.dislikes;
 
@@ -59,6 +65,9 @@ $dislikeBtnHover.addEventListener('click', () => {
     addDislike();
 });
 
+/**
+ * Realiza uma requisição ao backend para dar um like em uma campanha
+ */
 function addLike() {
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/like', {
         method: 'PUT',
@@ -83,6 +92,9 @@ function addLike() {
     })
 }
 
+/**
+ * Realiza uma requisição ao backend para dar um dislike em uma campanha
+ */
 function addDislike() {
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/dislike', {
         method: 'PUT',

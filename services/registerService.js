@@ -8,6 +8,9 @@ $submit_btn.addEventListener('click', () => {
     checkFields();
 });
 
+/**
+ * Garante que os campos estão preenchidos devidamente
+ */
 function checkFields() {
     let $name = document.querySelector('#campaign-name').value;
     let $description = document.querySelector('#campaign-description').value;
@@ -25,6 +28,9 @@ function checkFields() {
     };
 };
 
+/**
+ * Realiza uma requisição para criar uma campanha
+ */
 function submitCampaign() {
     let $name = document.querySelector('#campaign-name').value;
     let $description = document.querySelector('#campaign-description').value;
@@ -85,6 +91,9 @@ function submitCampaign() {
     });
 };
 
+/**
+ * Algoritmo gerador de url curta
+ */
 function generateUrl() {
     let url = document.querySelector('#campaign-name').value;
 

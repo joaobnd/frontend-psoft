@@ -1,6 +1,10 @@
 import getCampaign from './campaignService.js';
 let $hash = location.hash.split('#')[1];
 
+/**
+ * Recebe uma campanha e renderiza na tela as informações referentes a comentários e respostas.
+ * @param {*} data Dados da campanha a ser renderizada
+ */
 function renderComments(data) {
     let $container = document.querySelector('#comments-container');
 
@@ -52,6 +56,10 @@ $comment_btn.addEventListener('click', () => {
     submitComment($comment);
 })
 
+/**
+ * Realiza uma requisição ao backend para criar um novo comentario na campanha.
+ * @param {*} newComment Texto do comentário
+ */
 function submitComment(newComment) {
     event.preventDefault();
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/comment', {
@@ -79,9 +87,7 @@ function submitComment(newComment) {
 }
 
 window.addEventListener('click', listen)
-
 function listen(e) {
-    
     if (e.target.className == 'comment-delete') {
         deleteComment(e.target.id)
     } else if (e.target.className == 'comment-reply') {
@@ -93,6 +99,9 @@ function listen(e) {
     }
 }
 
+/**
+ * Realiza a operação de mostrar ou ocultar o botão de respostas do comentário 
+ */
 function showReplies(id) {
     let $replies = document.querySelector('#comment-replies-' + id.split('-')[1]);
     let $reply = document.querySelector('#replies-' + id.split('-')[1]);
@@ -107,8 +116,10 @@ function showReplies(id) {
     }
 }
 
+/**
+ * Realiza uma requisição ao backend para deletar um comentário a partir do id.
+ */
 function deleteComment(idComment) {
-
     event.preventDefault();
 
     fetch('https://api-ajudepsoft.herokuapp.com/v1/api/campaigns/' + $hash + '/comment', {
@@ -133,6 +144,9 @@ function deleteComment(idComment) {
     })
 }
 
+/**
+ * Mostra ou oculta o formulário de resposta a um comentário 
+ */
 function showReplyForm(id) {
     let $form_reply = document.querySelector('#form-reply-' + id.split('-')[1]);
 
@@ -143,6 +157,9 @@ function showReplyForm(id) {
     }
 }
 
+/**
+ * Realiza uma requisição ao backend para criar uma resposta a um determinado comentário 
+ */
 function addReply(id) {
     let $reply_value = document.querySelector('#reply-value-' + id.split('-')[3]).value;
 

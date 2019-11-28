@@ -6,6 +6,9 @@ window.onload = () => {
     getProfile();
 }
 
+/**
+ * Realiza uma requisição para pegar os dados de um usuário
+ */
 function getProfile() {
     let user_email = localStorage.getItem('email');
 
@@ -36,6 +39,9 @@ function getProfile() {
     });
 }
 
+/**
+ * Renderiza os dados do usuário na tela 
+ */
 function renderProfile(user) {
     let $profile_fname = document.querySelector('#profile-fname');
     let $profile_lname = document.querySelector('#profile-lname');
@@ -52,6 +58,9 @@ $submit_button.addEventListener('click', () => {
     checkFields();
 });
 
+/**
+ * Garante que os campos estão devidamente preenchidos
+ */
 function checkFields() {
     let $password = document.querySelector('#new-password').value;
     let $password_confirm = document.querySelector('#new-password-confirm').value;
@@ -71,6 +80,9 @@ function checkFields() {
     }
 };
 
+/**
+ * Realiza uma requisição para alterar a senha de um usuário já logado
+ */
 function changePassword(newPassword) {
     let link = 'https://api-ajudepsoft.herokuapp.com/v1/api/users/' + localStorage.getItem('email') + '/password';
 
