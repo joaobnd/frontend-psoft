@@ -11,6 +11,9 @@ $submit_button.addEventListener('click', () => {
     }
 });
 
+/**
+ * Envia um email de redefinição de senha para o usuário 
+ */
 function sendRecoveryEmail(email) {
     loadElements();
 
@@ -46,6 +49,9 @@ function sendRecoveryEmail(email) {
     });
 };
 
+/**
+ * Carrega elementos gráficos na tela
+ */
 function loadElements() {
     let $loadingMsg = document.createElement('h3');
     $loadingMsg.innerHTML = 'Aguarde um momento';

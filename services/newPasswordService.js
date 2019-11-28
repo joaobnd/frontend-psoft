@@ -4,6 +4,9 @@ $submit_button.addEventListener('click', () => {
     checkFields();
 });
 
+/**
+ * Garante que os campos estão devidamente preenchidos
+ */
 function checkFields() {
     let $password = document.querySelector('#new-password').value;
     let $password_confirm = document.querySelector('#new-password-confirm').value;
@@ -21,6 +24,9 @@ function checkFields() {
     }
 };
 
+/**
+ * Pega o token da url 
+ */
 function checkToken(password) {
     var url = window.location.href;
     var token = url.split('?')[1].split('=')[1];
@@ -28,6 +34,9 @@ function checkToken(password) {
     changePassword(token,password);
 };
 
+/**
+ * Realiza uma requisição para alterar a senha do usuário 
+ */
 function changePassword(token, newPassword) {
     loadElements();
     
@@ -57,6 +66,9 @@ function changePassword(token, newPassword) {
     });
 };
 
+/**
+ * Carrega elementos gráficos na tela
+ */
 function loadElements() {
     let $loadingMsg = document.createElement('h3');
     $loadingMsg.innerHTML = 'Aguarde um momento';

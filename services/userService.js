@@ -4,6 +4,9 @@ $submit_button.addEventListener('click', () => {
     checkFields();
 });
 
+/**
+ * Checa se os campos estão preenchidos devidamente
+ */
 function checkFields() {
     let $fname = document.querySelector('#register-first-name').value;
     let $lname = document.querySelector('#register-last-name').value;
@@ -25,6 +28,9 @@ function checkFields() {
     }
 };
 
+/**
+ * Realiza uma requisição para cadastrar um usuário no sistema
+ */
 function registerUser() {
     let $fname = document.querySelector('#register-first-name').value;
     let $lname = document.querySelector('#register-last-name').value;
@@ -70,6 +76,9 @@ function registerUser() {
     })
 };
 
+/**
+ * Carrega elementos gráficos na página
+ */
 function loadElements() {
     let $loadingMsg = document.createElement('h3');
     $loadingMsg.innerHTML = 'Aguarde um momento';

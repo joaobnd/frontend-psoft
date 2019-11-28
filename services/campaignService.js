@@ -9,6 +9,10 @@ window.onload = () => {
     getCampaign();
 };
 
+/**
+ * Faz uma requisição ao backend para retornar uma campanha a partir do nome curto colocado na URL, após receber os dados chama as funções
+ * para renderizar os dados na tela.
+ */
 function getCampaign() {
     let $hash = location.hash.split('#')[1];
 

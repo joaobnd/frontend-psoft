@@ -28,6 +28,9 @@ function clickOutside(e) {
     };
 };
 
+/**
+ * Faz uma requisição ao backend para realizar uma doação para uma determinada campanha
+ */
 function donateValue() {
     let $value = document.querySelector('#contributing-value').value;
     let $current_value = document.querySelector('#current-value').innerHTML;
@@ -79,6 +82,9 @@ function donateValue() {
     });
 };
 
+/**
+ * Retorna a soma de todas as doações 
+ */
 function getTotalValue(donations) {
     let sum = 0;
 
