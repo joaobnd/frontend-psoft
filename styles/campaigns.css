@@ -877,6 +877,13 @@ footer {
     color: #333;
 }
 
+.campaign-description {
+    max-width: 35ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
 .campaign-unit-img-div {
     background-image: url(./img/hands-background2.png);
     background-size: cover;
