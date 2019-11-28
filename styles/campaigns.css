@@ -884,6 +884,14 @@ footer {
     padding: 10px;
 }
 
+.campaign-unit-description {
+    max-width: 35ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}    
+
 .campaign-unit-img-div img {
     height: 50px;
 }
