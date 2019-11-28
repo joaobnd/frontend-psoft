@@ -15,6 +15,9 @@ A aplicação do front-end pode ser acessada através do link: https://ajude-pso
 ### Link para o repositório do back-end
 O repositório com o código-fonte do back-end do projeto pode ser acessado através do link: https://github.com/gabrielfernans/backend-psoft
 
+### Link para o video no youtube
+Para ver o video explicativo acesse o link: https://youtu.be/zwn-WF9Qyb0
+
 ### Ferramental utilizado no projeto
 * Vanilla JavaScript
 * HTML
