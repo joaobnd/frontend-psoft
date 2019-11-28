@@ -816,6 +816,38 @@ footer {
     display: block;
 }
 
+.reply-value {
+    width: 385px;
+    margin: 10px auto;
+    padding: 10px 5px;
+    display: flexbox;
+    font-size: 16px;
+}
+
+.form-reply {
+    height: auto;
+    margin: 10px 10% auto 20%;
+    display: none;
+}
+
+.reply-send-btn {
+    display: auto;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 15px;
+    background-color: #133d6e;
+    border: solid 1px #E8E8E8;
+    border-radius: 8px;
+    color: #E8E8E8;
+}
+
+.reply-send-btn:hover {
+    background-color: #4a8fda;
+    color: #E8E8E8;
+    border: solid 1px #E8E8E8;
+}
+
 /* CAMPAIGNS */
 
 #campaigns-section {
