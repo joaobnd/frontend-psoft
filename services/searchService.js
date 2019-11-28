@@ -116,6 +116,8 @@ function renderCampaigns() {
 
     if (campaignsToShow.length == 0) {
         $campaigns_div.innerHTML = '<h3>Nenhuma campanha foi encontrada</h3>'
+    } else {
+        $campaigns_div.innerHTML = '<h3 style="color: #4a8fda">Resultados</h3>'
     }
 
     for (let i = 0; i < campaignsToShow.length; i++) {
@@ -123,23 +125,50 @@ function renderCampaigns() {
         `<div class="campaign-unit">
             <a href="campaign.html#${campaignsToShow[i].urlId}">
                 <div class="campaign-unit-img-div">
-                    <img src="../styles/img/logo.png" height="70px" alt="">
+                    <img src="../styles/img/logo.png" alt="">
                 </div>
                 <div class="campaign-unit-data-div">
-                    <span class="campaign-unit-name">${campaignsToShow[i].name}</span>
-                    
-                    <div class="campaign-unit-owner-data">
-                        <img src="../styles/img/profile.png" alt="profile logo" height="50px">
-                        <p>${campaignsToShow[i].owner.firstName + ' ' + campaignsToShow[i].owner.lastName}</p>
+                    <div class="campaign-unit-name-div">
+                        <p class="campaign-unit-name">${campaignsToShow[i].name}</p>
                     </div>
-                    <div class="campaign-unit-status">
-                        <span>Status:</span>                       
-                        <p>${campaignsToShow[i].status} </p>
+                    <div class="campaign-unit-owner-data">
+                        <img src="../styles/img/profile2.png" alt="profile logo" height="40px">
+                        <br>
+                        <p>${campaignsToShow[i].owner.firstName + " " + campaignsToShow[i].owner.lastName}</p>
+                    </div>
+                    <div class="campaign-unit-goal">                     
+                        <p class="campaign-goal-value">Meta: R$${campaignsToShow[i].goal},00</p>
+                        <br>
+                        <p class="campaign-achieved-value">Arrecadado: R$${getCurrentValue(campaignsToShow[i].donations)},00</p>
+                    </div>
+                    <div class="campaign-unit-deadline">
+                        <span>Encerra em</span>    
+                        <br>                   
+                        <p class="campaign-deadline-value">${campaignsToShow[i].deadLine.substring(8) + '/' 
+                                                           + campaignsToShow[i].deadLine.substring(5, 7) + '/' 
+                                                           + campaignsToShow[i].deadLine.substring(0, 4)}</p>
+                    </div>
+                    <div class="campaign-unit-likes">
+                        <span>Curtidas</span>                       
+                        <p class="campaign-likes-value">${campaignsToShow[i].likes.length}</p>
                     </div>
                 </div>
             </a>
-        </div>`;
+        </div>`
+        ;
     }
+}
+
+/**
+ * Retorna o valor total arrecadado da campanha.
+ */
+function getCurrentValue(donations) {
+    let sum = 0;
+
+    for (let i = 0; i < donations.length; i++) {
+        sum += donations[i].value;
+    }
+    return sum;
 }
 
 /**

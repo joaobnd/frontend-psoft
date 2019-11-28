@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="crowdfunding, doação, vaquinha">
     <meta name="keywords" content="Uma plataforma de crowdfunding gratuita feita para você!">
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
-    <script src="../services/rankingService.js" type="module"></script>
+    <link rel="stylesheet" href="../styles/profile.css">
+    <script src="../services/userPageService.js" type="module"></script>
 </head>
 <body>
+    <!-- NAVBAR -->
     <header class="main-header">
         <nav id="navbar">
             <ul id="navbar-ul">
@@ -39,35 +40,37 @@
     <div id="aux-div">
         <br>
     </div>
-    <!-- WALLPAPER -->
-    <section id="wallpaper-section">
-        <div id="wallpaper-div">
-            <img src="../styles/img/wallpaper.png" alt="">
-            <a href="campaigns.html">Buscar campanha</a>
+    
+    <!-- PERFIL DO USUARIO -->
+    <section id="data-container"> 
+        <div id="user-data-section">
+            <div id="user-img-div">
+                <img src="../styles/img/profile2.png" alt="profile logo">
+            </div>
+            <div id="user-data-div">
+                <p id="user-profile-name"></p>
+                <p id="user-profile-email"></p>
+            </div>
         </div>
-    </section>  
-
-    <!-- LANCE SUA CAMPANHA -->
-    <section id="launch-section">
-        <div id="launch-div">
-            <button id="launch-btn">Lance sua campanha</button>
-        </div>
-    </section>
-
-    <!-- CAMPANHAS ATIVAS -->
-    <section id="campaigns-section">
-        <div id="campaigns-div">
-            <span id="campaigns-span">
-                <span>campanhas que</span>
-                <select id="filter-options">
-                    <option value="A">faltam menos para atingir a meta</option>
-                    <option value="B">estão prestes a expirar</option>
-                    <option value="C">receberam mais likes</option>
-                </select required>
-            </span>
-        </div>
-        <div id="campaigns-ranking">
+        <div id="owner-campaigns">
+            <h2>Campanhas do usuário</h2>
             
+            <form id="campaign-form">
+                <input type="text" id="search-user-campaign" placeholder="Encontrar campanha" required>
+            </form>
+            <div id="user-campaigns">
+
+            </div>
+
+            <br>
+            <h2>Campanhas que o usuário fez alguma doação</h2>
+
+            <form id="campaign-form">
+                <input type="text" id="search-user-donate-campaign" placeholder="Encontrar campanha" required>
+            </form>
+            <div id="user-donate-campaigns">
+                
+            </div>
         </div>
     </section>
 
@@ -82,12 +85,6 @@
         </div>
     </footer>
     <script>
-        let $launch_btn = document.querySelector('#launch-btn');
-
-        $launch_btn.addEventListener('click', () => {
-            window.location.href = 'create-campaign.html';
-        });
-
         hideContent();
 
         /**

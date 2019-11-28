@@ -53,28 +53,37 @@
     
     <!-- DADOS -->
     <section id="my-data-section">
-        <h3>
-            Meus dados
-        </h3>
+        <h3>Meus dados</h3>
+
         <div id="my-data-div">
-            <ul>
-                <li>
-                    <span>Nome</span>
-                </li>
-                <li>
-                    <span>Último nome</span>
-                </li>
-            </ul>
+            <span>Primeiro nome</span>
+            <p id="profile-fname"></p>
+
+            <span>Último nome</span>
+            <p id="profile-lname"></p>
+
+            <span>Email</span>
+            <p id="profile-email"></p>
         </div>
     </section>
 
-    <!-- CAMPANHAS -->
-    <section id="my-campaigns-section">
-        <h3>
-            Minhas campanhas
-        </h3>
-        <div id="my-campaigns-div">
-            
+    <!-- ALTERAR SENHA -->
+    <section id="new-password-section">
+        <h3>Alterar minha senha</h3>
+        <div id="new-password-div">
+            <form class="submit-form">
+                <div class="form-group">
+                    <label>Nova senha</label>
+                    <input type="password" id="new-password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirme a senha</label>
+                    <input type="password" id="new-password-confirm" required>
+                </div>
+                <div class="form-group" >
+                    <button id="new-password-button" type="submit">Enviar</button>
+                </div>
+            </form>
         </div>
     </section>
 

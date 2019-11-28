@@ -19,6 +19,14 @@ h2 {
     padding-top: 10px;
 }
 
+h3{
+    padding: 20px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 25px;
+    color: #6e6e6e;
+}
+
 .main-header {
     position: inherit;
     padding-top: 20px;
@@ -110,7 +118,7 @@ h2 {
 }
 
 #my-data-section {
-    margin: 2% 15%;
+    margin: 2% 20%;
     padding-top: 30px 10px;
     background-color: #FEFEFE;
     border-radius: 3px;
@@ -123,19 +131,75 @@ h2 {
 }
 
 #my-data-div{
-    padding: 5% 10%;
+    padding: 1% 5%;
+    text-align: left;
 }
 
-#my-campaigns-section {
-    margin: 2% 15%;
+#my-data-div span{
+    font-size: 18px;
+    color: #777;
+    font-weight: bold;
+}
+
+#my-data-div p{
+    margin: 10px 0px 25px 0px;
+    padding: 5px 5px 5px 4px;
+    background-color: #FEFEFE;
+    width: 300px;
+    box-shadow: 0px -1px 3px #999;
+}
+
+#new-password-section {
+    margin: 2% 20%;
     padding-top: 30px 10px;
     background-color: #FEFEFE;
     border-radius: 3px;
     box-shadow: 0px -1px 3px #DDD;
 }
 
+#new-password-div {
+    padding: 1% 5%;
+    text-align: left;
+}
+
+.submit-form {
+    margin: 20px 0;
+    width: 300px;
+}
+
+.submit-form .form-group {
+    padding-bottom: 15px;
+}
+
+.submit-form label {
+    font-size: 18px;
+    color: #777;
+    font-weight: bold;
+}
+
+.submit-form input {
+    width: 100%;
+    margin: 10px 0px 15px 0px;
+    padding: 5px 5px 5px 4px;
+}
+
+.submit-form button {
+    cursor: pointer;
+    background-color: #4a8fda;
+    color: #F8F8F8;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.submit-form button:hover {
+    background-color: #3A7ECA;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
 footer {
-    position: absolute;
+    position: fixed;
     bottom:0;
     width:100%;
     padding: 2px 0;
@@ -154,4 +218,168 @@ footer {
 
 #profile-btn img{
     height: 42px;
+}
+
+/* USER PROFILE */
+
+#data-container {
+    width: 1300px;
+    background-color: #F8F8F8;
+    margin: 25px auto;
+    height: 274px;
+}
+
+#user-data-section {
+    margin: 0px 10px 0px 0px;
+    width: 300px;
+    border: solid 0.5px #CCC;
+    padding: 20px 0px;
+    position: fixed;
+    background-color: rgb(238, 244, 250);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
+}
+
+#user-img-div img {
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    height: 80px;
+}
+
+#user-data-div {
+    text-align: center;
+    font-size: 30px;
+    color: #555;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+}
+
+#user-profile-email {
+    font-size: 19px;
+    font-weight: 100;
+    color: #6e6e6e;
+    padding-bottom: 55px;
+}
+
+#owner-campaigns {
+    padding: 15px;
+    margin-left: 310px;
+    border: solid 0.5px #CCC;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 7px 20px 0 rgba(167, 120, 120, 0.15);
+    margin-bottom: 260px;
+}
+
+#owner-campaigns h2 {
+    font-size: 23px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    color: #444;
+    text-align: left;
+    margin: 8px;
+    padding-top: 0px;
+}
+
+#campaign-form input{
+    padding: 12px 20px 8px 4px;
+    margin: 0px auto 6px 8px;
+    width: 300px;
+    font-size: 16px;
+}
+
+#campaign-form button {
+    padding: 2px 6px 8px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: #4a8fda;
+    color: #F8F8F8;
+}
+
+#campaign-form button:hover {
+    background-color: #3A7ECA;
+}
+
+#user-campaigns {
+    text-align: center;
+    margin: 0px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.campaign-unit {
+    border: solid 1.5px #BBB;
+    width: 30%;
+    height: 300px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 25px 10px;
+}
+
+.campaign-unit a {
+    text-decoration: none;
+    color: #333;
+}
+
+.campaign-unit a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+.campaign-unit-img-div {
+    background-image: url(./img/hands-background2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.campaign-unit-img-div img {
+    height: 50px;
+}
+
+.campaign-unit-name-div {
+    color: #333;
+    padding: 10px;
+    max-width: 35ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.campaign-unit-name {
+    font-size: 16px;
+    padding: 2px;
+    text-transform: capitalize;
+    font-weight: bolder; 
+    
+}
+
+.campaign-goal-value {
+    font-size: 13px;
+}
+
+.campaign-achieved-value {
+    font-weight: bold; 
+    padding-bottom: 8px;
+}
+
+.campaign-unit-deadline {
+    background-color: #E8E8E8;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.campaign-deadline-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.campaign-unit-description {
+    padding: 12px;
+    font-size: 14px;
+}
+
+#user-donate-campaigns {
+    text-align: center;
 }

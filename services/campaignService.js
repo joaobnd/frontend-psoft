@@ -66,6 +66,7 @@ function renderElements(data) {
     let $update_day = document.querySelector('#campaign-deadline-day');
     let $update_month = document.querySelector('#campaign-deadline-month');
     let $update_year = document.querySelector('#campaign-deadline-year');
+    let $title_donate = document.querySelector('#campaign-title-contributing');
 
     $title.innerHTML = data.name;
     $current_value.innerHTML = getCurrentValue(data.donations) + ',00';
@@ -83,12 +84,20 @@ function renderElements(data) {
     $update_day.value = data.deadLine.substring(8);
     $update_month.value = getMonthName(data.deadLine.substring(5, 7));
     $update_year.value = data.deadLine.substring(0, 4);
+    $title_donate.innerHTML = data.name;
+
+    if (getCurrentValue(data.donations) > data.goal) {
+        $current_value.style.color = 'rgb(74, 226, 36)';
+    }
 
     if (data.status == 'Encerrada') {
         $status.style.backgroundColor = '#b62d2d';
         $status.style.color = '#F8F8F8';
     } else if (data.status == 'Concluida') {
         $status.style.backgroundColor = '#1daa30';
+        $status.style.color = '#F8F8F8';
+    } else if (data.status == 'Vencida') {
+        $status.style.backgroundColor = 'rgb(201, 211, 62)';
         $status.style.color = '#F8F8F8';
     }
 };
@@ -107,9 +116,14 @@ function logout() {
  */
 function showWidget(data) {
     let $manage_btn = document.querySelector('#manage-container');
+    let $donation_container = document.querySelector('#donation-container');
 
     if (data.owner.email == localStorage.getItem('email') && data.status != 'Encerrada' && data.status != 'Vencida') {
         $manage_btn.style.display = 'block';
+    };
+
+    if (data.status != 'Encerrada' && data.status != 'Vencida')  {
+        $donation_container.style.display = 'block';
     };
 };
 
