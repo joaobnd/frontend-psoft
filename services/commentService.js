@@ -81,7 +81,7 @@ function submitComment(newComment) {
 window.addEventListener('click', listen)
 
 function listen(e) {
-    event.preventDefault();
+    
     if (e.target.className == 'comment-delete') {
         deleteComment(e.target.id)
     } else if (e.target.className == 'comment-reply') {
