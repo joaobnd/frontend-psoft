@@ -31,4 +31,4 @@ O padrão de projeto utilizado no front-end foi o MVVM.
 
 #### Credenciais dos usuários previamente criados
 * E-mail: dalton.jafui@gmail.com  | Senha: dalton123
-* E-mail: raquel.rainha@gmail.com | Senha: raquel123
+* E-mail: raquelrainha2019@gmail.com | Senha: raquel123
