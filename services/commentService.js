@@ -16,8 +16,6 @@ function submitComment(comment) {
 
 function renderComments(data) {
     let comments = data.comments;
-
-    console.log(comments);
 }
 
 export default renderComments;
