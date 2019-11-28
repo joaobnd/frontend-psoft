@@ -1,4 +1,4 @@
-## FRONT-END - AJUDE - PROJETO DE SOFTWARE 2019.2
+## FRONTEND - AJUDE - PROJETO DE SOFTWARE 2019.2
 
 ![Ajude logo](/styles/img/wallpaper2.jpg)
 
